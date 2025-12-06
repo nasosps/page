@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>printed3d.gr &amp; NAEL Inspirations – 3D Εκτυπώσεις &amp; Χειροποίητες Δημιουργίες</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="printed3d.gr &amp; NAEL Inspirations – 3D εκτυπώσεις, χειροποίητες δημιουργίες, μπομπονιέρες, δώρα και custom projects.">
+    <style>
+        :root {
+            --bg-color: #f5f5f7;
+            --card-bg: #ffffff;
+            --accent: #ff6b3d;
+            --accent-dark: #e3562a;
+            --text-main: #222222;
+            --text-muted: #666666;
+            --border-soft: #e0e0e0;
+            --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.06);
+            --radius-lg: 18px;
+            --radius-xl: 26px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top left, #ffe9df 0, #f5f5f7 45%, #f5f5f7 100%);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 24px;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Λογότυπο επάνω-επάνω, συμπαγές ασπρόμαυρο */
+        .logo-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .logo-block img {
+            width: 160px;
+            height: 160px;
+            object-fit: contain;
+            /* φίλτρο για καθαρό BW, λίγο πιο «συμπαγές» */
+            filter: grayscale(100%) contrast(130%);
+        }
+
+        .logo-text-main {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .logo-text-sub {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .logo-contacts {
+            font-size: 0.88rem;
+            color: var(--text-main);
+        }
+
+        .logo-contacts span {
+            display: inline-block;
+            margin: 0 6px;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .brand-block {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .brand-main {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .brand-main span.nael {
+            color: var(--accent-dark);
+        }
+
+        .brand-sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(0,0,0,0.06);
+            background: rgba(255,255,255,0.85);
+            color: var(--text-main);
+            transition: all 0.15s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            border-color: var(--accent);
+            color: var(--accent-dark);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
+            transform: translateY(-1px);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+            gap: 24px;
+            margin-bottom: 26px;
+            align-items: stretch;
+        }
+
+        .hero-main {
+            background: linear-gradient(135deg, #ffffff, #ffece4);
+            border-radius: var(--radius-xl);
+            padding: 24px 26px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(0,0,0,0.04);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .hero-pill span.dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #16a34a;
+            box-shadow: 0 0 0 4px rgba(22,163,74,0.18);
+        }
+
+        .hero-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .hero-tags span {
+            font-size: 0.8rem;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: rgba(255,107,61,0.14);
+            border: 1px solid rgba(227,86,42,0.35);
+            color: var(--accent-dark);
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 15px;
+            border-radius: 999px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #ffffff;
+            box-shadow: 0 8px 18px rgba(229, 92, 52, 0.35);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px rgba(229, 92, 52, 0.42);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.9);
+            color: var(--text-main);
+            border: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent-dark);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+            transform: translateY(-1px);
+        }
+
+        .hero-side {
+            background: rgba(255,255,255,0.96);
+            border-radius: var(--radius-xl);
+            padding: 18px 18px 20px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .hero-side-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .hero-side-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .hero-list {
+            list-style: none;
+            font-size: 0.88rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .hero-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 6px;
+            margin-bottom: 6px;
+        }
+
+        .hero-list li span.bullet {
+            font-size: 1rem;
+            line-height: 1.1;
+            color: var(--accent-dark);
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
+            gap: 22px;
+            margin-bottom: 26px;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.98);
+            border-radius: var(--radius-lg);
+            padding: 18px 20px 20px;
+            box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .card h2 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .card h3 {
+            font-size: 0.95rem;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .muted {
+            color: var(--text-muted);
+            font-size: 0.86rem;
+        }
+
+        .list {
+            padding-left: 16px;
+            margin-bottom: 6px;
+        }
+
+        .list li {
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 6px;
+            margin-bottom: 2px;
+        }
+
+        .pill {
+            font-size: 0.78rem;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(255,107,61,0.10);
+            color: var(--accent-dark);
+        }
+
+        .highlight {
+            font-weight: 600;
+            color: var(--accent-dark);
+        }
+
+        .cols-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 18px;
+        }
+
+        .idea-item {
+            font-size: 0.88rem;
+        }
+
+        .steps {
+            counter-reset: step;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .steps li {
+            counter-increment: step;
+            margin-bottom: 4px;
+            font-size: 0.9rem;
+        }
+
+        .steps li::before {
+            content: counter(step) ".";
+            font-weight: 600;
+            margin-right: 4px;
+            color: var(--accent-dark);
+        }
+
+        .contact-card {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .contact-row {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            margin-right: 4px;
+        }
+
+        footer {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        footer a {
+            color: var(--accent-dark);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                padding: 16px;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-card {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- ΛΟΓΟΤΥΠΟ & ΒΑΣΙΚΑ ΣΤΟΙΧΕΙΑ -->
+    <div class="logo-block">
+        <!-- άλλαξε το src αν χρειάζεται -->
+        <img src="logo-nael.png" alt="NAEL Inspirations logo">
+        <div class="logo-text-main">Νάσος Ψαραδάκης</div>
+        <div class="logo-text-sub">Σχεδιασμός &amp; Εκτυπώσεις 3D • NAEL Inspirations • printed3d.gr</div>
+        <div class="logo-contacts">
+            <span>📞 690 863 6196</span>
+            <span>✉️ <a href="mailto:naelinspirations@outlook.com">naelinspirations@outlook.com</a></span>
+            <span>🌐 <a href="https://www.printed3d.gr" target="_blank" rel="noopener">www.printed3d.gr</a></span>
+        </div>
+    </div>
+
+    <header>
+        <div class="brand-block">
+            <div class="brand-main">
+                <span class="nael">NAEL Inspirations</span> • printed3d.gr
+            </div>
+            <div class="brand-sub">
+                3D Εκτυπώσεις &amp; Χειροποίητες Δημιουργίες – Προσωποποιημένα δώρα, μπομπονιέρες &amp; custom projects.
+            </div>
+        </div>
+        <nav class="nav-links">
+            <a href="#about">Ποιος είμαι</a>
+            <a href="#printed3d">3D Εκτυπώσεις</a>
+            <a href="#nael">NAEL Inspirations</a>
+            <a href="#process">Πώς δουλεύω</a>
+            <a href="#ideas">Ιδέες &amp; εφαρμογές</a>
+            <a href="#contact">Επικοινωνία</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-main">
+            <div class="hero-pill">
+                <span class="dot"></span>
+                Διαθέσιμος για νέες ιδέες &amp; συνεργασίες
+            </div>
+            <h1 class="hero-title">3D Printing &amp; Χειροποίητα Δώρα με προσωπικό χαρακτήρα</h1>
+            <p class="hero-subtitle">
+                Συνδυάζω την τεχνολογία της 3D εκτύπωσης με χειροποίητες λεπτομέρειες για να δημιουργώ 
+                ξεχωριστά αντικείμενα: από μπομπονιέρες γάμου/βάπτισης και εταιρικά δωράκια, μέχρι 
+                custom κατασκευές και καθημερινά αντικείμενα για το σπίτι ή τη δουλειά.
+            </p>
+            <div class="hero-tags">
+                <span>#printed3d</span>
+                <span>#nael_inspirations</span>
+                <span>#3dprinting</span>
+                <span>#χειροποίητα_δώρα</span>
+                <span>#custom_projects</span>
+            </div>
+            <div class="hero-cta">
+                <a class="btn-primary" href="#contact">
+                    Ζήτα προσφορά
+                </a>
+                <a class="btn-secondary" href="https://www.printed3d.gr" target="_blank" rel="noopener">
+                    Επίσκεψη στο printed3d.gr
+                </a>
+            </div>
+        </div>
+
+        <aside class="hero-side">
+            <div>
+                <h2 class="hero-side-title">Τι μπορώ να αναλάβω</h2>
+                <p class="hero-side-text">
+                    Δουλεύω σε μικρές και μεσαίες σειρές παραγωγής, αλλά και μεμονωμένα, 
+                    δίνοντας έμφαση στη λεπτομέρεια και στην επικοινωνία μαζί σου.
+                </p>
+                <ul class="hero-list">
+                    <li><span class="bullet">•</span><span>Μπομπονιέρες γάμου &amp; βάπτισης με 3D στοιχεία &amp; κορδέλες.</span></li>
+                    <li><span class="bullet">•</span><span>Προσωποποιημένα δώρα (ονόματα, ημερομηνίες, μηνύματα).</span></li>
+                    <li><span class="bullet">•</span><span>Χριστουγεννιάτικες &amp; εποχικές δημιουργίες.</span></li>
+                    <li><span class="bullet">•</span><span>Μικρά αντικείμενα οργάνωσης χώρου &amp; γραφείου.</span></li>
+                    <li><span class="bullet">•</span><span>Custom εκτυπώσεις από δικά σου 3D αρχεία (STL, OBJ κ.λπ.).</span></li>
+                </ul>
+            </div>
+        </aside>
+    </section>
+
+    <main>
+        <!-- Ποιος είμαι -->
+        <section class="card" id="about">
+            <h2>Ποιος είμαι</h2>
+            <p>
+                Ονομάζομαι <span class="highlight">Αναστάσιος (Νάσος) Ψαραδάκης</span> και δραστηριοποιούμαι στο Ηράκλειο Κρήτης, 
+                συνδυάζοντας την αγάπη μου για την τεχνολογία με τη δημιουργικότητα.
+            </p>
+            <p class="muted">
+                Μέσα από το <strong>printed3d.gr</strong> και το <strong>NAEL Inspirations</strong> 
+                σχεδιάζω και υλοποιώ αντικείμενα που έχουν πάντα κάτι προσωπικό: ένα όνομα, μια ημερομηνία, 
+                μια μικρή ιστορία πίσω από κάθε κατασκευή.
+            </p>
+            <p>
+                Στόχος μου είναι να προσφέρω:
+            </p>
+            <ul class="list">
+                <li>καθαρή και ποιοτική 3D εκτύπωση,</li>
+                <li>προσεγμένο φινίρισμα και δέσιμο με υφάσματα/κορδέλες/υλικά,</li>
+                <li>ειλικρινή ενημέρωση για χρόνους παράδοσης και κόστος,</li>
+                <li>φιλική, ανθρώπινη συνεργασία – από την πρώτη ιδέα μέχρι την παράδοση.</li>
+            </ul>
+        </section>
+
+        <!-- Τεχνικές δυνατότητες / printed3d -->
+        <section class="card" id="printed3d">
+            <h2>3D Εκτυπώσεις – printed3d.gr</h2>
+            <p>
+                Αναλαμβάνω <strong>3D εκτυπώσεις κατά παραγγελία</strong> για ιδιώτες και επαγγελματίες. 
+                Αν έχεις έτοιμο 3D αρχείο ή απλώς μια ιδέα στο μυαλό σου, μπορούμε να τη μετατρέψουμε σε πραγματικό αντικείμενο.
+            </p>
+            <h3>Τι αναλαμβάνω σε επίπεδο 3D εκτύπωσης</h3>
+            <ul class="list">
+                <li>Εκτύπωση από έτοιμα 3D αρχεία (STL, OBJ κ.λπ.).</li>
+                <li>Μικρές προσαρμογές σε μοντέλα (μέγεθος, απλές τροποποιήσεις).</li>
+                <li>Πρωτότυπα για δοκιμές (prototypes) μικρών αντικειμένων.</li>
+                <li>Επαναλαμβανόμενα κομμάτια για μικρές σειρές.</li>
+            </ul>
+            <h3>Υλικά &amp; αισθητική</h3>
+            <p class="muted">
+                Χρησιμοποιούνται κυρίως πλαστικά 3D printing (PLA κ.ά.), σε 
+                <strong>διάφορα χρώματα</strong> ανάλογα με τη διαθεσιμότητα και το project. 
+                Προτείνω πάντα συνδυασμούς χρωμάτων έτσι ώστε το τελικό αποτέλεσμα 
+                να ταιριάζει στο ύφος της εκδήλωσης ή του χώρου σου.
+            </p>
+            <div class="pill-row">
+                <span class="pill">Καθαρά layer lines</span>
+                <span class="pill">Προσεκτικό φινίρισμα</span>
+                <span class="pill">Έλεγχος ποιότητας κάθε τεμαχίου</span>
+            </div>
+        </section>
+    </main>
+
+    <section class="card" id="nael">
+        <h2>NAEL Inspirations – Χειροποίητες Δημιουργίες &amp; 3D Στοιχεία</h2>
+        <p>
+            Το <strong>NAEL Inspirations</strong> είναι η πιο «χειροποίητη» πλευρά μου: 
+            συνδυάζω 3D εκτυπώσεις με κορδέλες, τούλια, διακοσμητικά στοιχεία και άλλα υλικά, 
+            δημιουργώντας ολοκληρωμένα δώρα και συνθέσεις.
+        </p>
+
+        <div class="cols-2" style="margin-top: 10px;">
+            <div>
+                <h3>Ενδεικτικές κατηγορίες</h3>
+                <ul class="list">
+                    <li>Μπομπονιέρες γάμου &amp; βάπτισης με 3D στοιχεία.</li>
+                    <li>Συνθέσεις με <strong>τούλι &amp; κορδέλες</strong> για ειδικές περιστάσεις.</li>
+                    <li>Προσωποποιημένα κρεμαστά / διακοσμητικά με ονόματα.</li>
+                    <li>Εποχιακές δημιουργίες (Χριστούγεννα, Πάσχα, δώρα εκπαιδευτικών κ.λπ.).</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Τι προσθέτει το χειροποίητο κομμάτι</h3>
+                <p class="idea-item">
+                    Η χειροποίητη δουλειά επιτρέπει να «δέσουμε» την 3D εκτύπωση με υφές, 
+                    χρώματα και μικρές λεπτομέρειες που κάνουν κάθε κομμάτι μοναδικό.
+                </p>
+                <p class="idea-item">
+                    Ειδικά σε γάμους, βαπτίσεις και προσωπικά δώρα, φροντίζω το τελικό 
+                    αποτέλεσμα να ταιριάζει στην αισθητική και την ιστορία του ζευγαριού ή του προσώπου.
+                </p>
+            </div>
+        </div>
+
+        <div class="pill-row" style="margin-top: 8px;">
+            <span class="pill">Custom χρώματα &amp; θεματικές</span>
+            <span class="pill">Συνδυασμός 3D print + υφάσματα</span>
+            <span class="pill">Μικρές &amp; μεσαίες ποσότητες</span>
+        </div>
+    </section>
+
+    <section class="card" id="process" style="margin-top: 22px;">
+        <h2>Πώς δουλεύω – Από την ιδέα στο αντικείμενο</h2>
+        <p>
+            Προτιμώ η συνεργασία να είναι απλή και ξεκάθαρη. Συνήθως ακολουθούμε τα εξής βήματα:
+        </p>
+        <ol class="steps">
+            <li>Μου στέλνεις ένα μήνυμα με την ιδέα σου (περίσταση, ποσότητα, ύφος, χρώματα).</li>
+            <li>Αν έχεις 3D αρχείο, το στέλνεις· αν όχι, περιγράφεις όσο πιο συγκεκριμένα γίνεται τι θέλεις.</li>
+            <li>Συζητάμε πιθανές λύσεις, υλικά, χρώματα και ενδεικτικό κόστος.</li>
+            <li>Οριστικοποιούμε το σχέδιο και το χρονοδιάγραμμα.</li>
+            <li>Ξεκινά η παραγωγή.</li>
+            <li>Παράδοση των κομματιών στο συμφωνημένο σημείο ή αποστολή με courier.</li>
+        </ol>
+        <p class="muted" style="margin-top: 6px;">
+            Για μεγαλύτερες ποσότητες (π.χ. πολλές μπομπονιέρες), είναι καλό να υπάρχει 
+            λίγο περισσότερος χρόνος προετοιμασίας, ώστε να εξασφαλίζεται η ποιότητα και η συνέπεια στην παράδοση.
+        </p>
+    </section>
+
+    <section class="card" id="ideas" style="margin-top: 22px;">
+        <h2>Ιδέες &amp; Εφαρμογές</h2>
+        <p>
+            Μερικές ιδέες για το πώς μπορούμε να αξιοποιήσουμε την 3D εκτύπωση και το NAEL Inspirations:
+        </p>
+        <div class="cols-2" style="margin-top: 8px;">
+            <div>
+                <h3>Για εκδηλώσεις</h3>
+                <ul class="list">
+                    <li>Μπομπονιέρες με 3D διακοσμητικό και δέσιμο με κορδέλα/τούλι.</li>
+                    <li>Αριθμοί τραπεζιών ή μικρές ταμπέλες με ονόματα καλεσμένων.</li>
+                    <li>Μικρά ευχαριστήρια δώρα για κουμπάρους/νονούς.</li>
+                </ul>
+                <h3>Για το σπίτι &amp; το γραφείο</h3>
+                <ul class="list">
+                    <li>Βάσεις για στυλό, μικροαντικείμενα οργάνωσης.</li>
+                    <li>Μικρά διακοσμητικά με ονόματα ή λέξεις (π.χ. “Home”, “Love”).</li>
+                    <li>Στήριγματα για καλώδια, μικρά πρακτικά αντικείμενα.</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Για δώρα</h3>
+                <ul class="list">
+                    <li>Προσωποποιημένα δώρα για γενέθλια ή επετείους.</li>
+                    <li>Δώρα για δασκάλους/εκπαιδευτικούς στο τέλος της χρονιάς.</li>
+                    <li>Χριστουγεννιάτικες μπάλες ή στολίδια με ονόματα.</li>
+                </ul>
+                <p class="muted" style="margin-top: 6px;">
+                    Αν έχεις δει κάτι στο διαδίκτυο που σου αρέσει, μπορείς να μου το στείλεις 
+                    ως έμπνευση, ώστε να συζητήσουμε αν και πώς μπορεί να υλοποιηθεί.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY ΑΠΟ ΦΑΚΕΛΟ images/ ΣΤΟ GITHUB -->
+    <section class="card" id="gallery" style="margin-top: 22px;">
+        <h2>Gallery – Δείγματα δουλειών</h2>
+        <p class="muted">
+            Οι εικόνες φορτώνονται αυτόματα από τον φάκελο <code>images/</code> του GitHub repo.
+        </p>
+        <div id="gallery-grid" class="cols-2" style="margin-top: 8px;"></div>
+    </section>
+
+    <section class="card" id="contact" style="margin-top: 22px;">
+        <h2>Επικοινωνία</h2>
+        <p>
+            Για οποιαδήποτε ιδέα ή ερώτηση, μπορείς να επικοινωνήσεις μαζί μου με τους παρακάτω τρόπους.
+        </p>
+
+        <div class="contact-card">
+            <div>
+                <div class="contact-row">
+                    <span class="contact-label">Email:</span>
+                    <span><a href="mailto:naelinspirations@outlook.com">naelinspirations@outlook.com</a></span>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-label">Τηλ. / Κινητό:</span>
+                    <span>+30 690 863 6196</span>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-label">Ιστότοπος:</span>
+                    <a href="https://www.printed3d.gr" target="_blank" rel="noopener">www.printed3d.gr</a>
+                </div>
+                <div class="contact-row">
+                    <span class="contact-label">Instagram:</span>
+                    <span>@nael_inspirations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        © <span id="year"></span> printed3d.gr &amp; NAEL Inspirations – 3D Εκτυπώσεις &amp; Χειροποίητες Δημιουργίες.
+        Όλα τα δικαιώματα διατηρούνται.
+    </footer>
+</div>
+
+<script>
+    // Αυτόματο έτος στο footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // --------- AUTO GALLERY ΑΠΟ GITHUB /images ----------
+    const GITHUB_USER = "nasosps";
+    const GITHUB_REPO = "page";
+    const IMAGES_PATH = "images";
+
+    const galleryGrid = document.getElementById("gallery-grid");
+
+    async function loadGalleryFromGithub() {
+        if (!galleryGrid) return;
+
+        const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${IMAGES_PATH}`;
+
+        try {
+            const response = await fetch(apiUrl);
+            if (!response.ok) {
+                console.error("GitHub API error:", response.status, response.statusText);
+                galleryGrid.innerHTML = '<p class="muted">Δεν ήταν δυνατή η φόρτωση της gallery.</p>';
+                return;
+            }
+
+            const files = await response.json();
+            if (!Array.isArray(files) || files.length === 0) {
+                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες στον φάκελο images.</p>';
+                return;
+            }
+
+            const allowedExt = ["jpg", "jpeg", "png", "gif", "webp", "svg"];
+            let html = "";
+
+            files.forEach(file => {
+                if (file.type !== "file") return;
+                const name = file.name || "";
+                const ext = name.split(".").pop().toLowerCase();
+                if (!allowedExt.includes(ext)) return;
+
+                const fileUrl = file.download_url; // απευθείας URL της εικόνας
+                const safeName = name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+                html += `
+                    <div style="margin-bottom: 12px;">
+                        <div class="muted" style="margin-bottom: 4px;">${safeName}</div>
+                        <img src="${fileUrl}"
+                             alt="${safeName}"
+                             style="max-width:100%; border-radius: 12px; border:1px solid #e0e0e0;">
+                    </div>
+                `;
+            });
+
+            if (html === "") {
+                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες στον φάκελο images.</p>';
+            } else {
+                galleryGrid.innerHTML = html;
+            }
+
+        } catch (err) {
+            console.error("Gallery load error:", err);
+            galleryGrid.innerHTML = '<p class="muted">Παρουσιάστηκε σφάλμα κατά τη φόρτωση της gallery.</p>';
+        }
+    }
+
+    loadGalleryFromGithub();
+</script>
+</body>
+</html>

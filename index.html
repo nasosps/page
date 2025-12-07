@@ -51,7 +51,6 @@
             width: 160px;
             height: 160px;
             object-fit: contain;
-            /* φίλτρο για καθαρό BW, λίγο πιο «συμπαγές» */
             filter: grayscale(100%) contrast(130%);
         }
 
@@ -75,6 +74,40 @@
         .logo-contacts span {
             display: inline-block;
             margin: 0 6px;
+        }
+
+        /* VCF BUTTON ΚΑΤΩ ΑΠΟ ΤΟ LOGO */
+        .vcf-block {
+            margin-top: 10px;
+            text-align: center;
+            max-width: 420px;
+        }
+
+        .vcf-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 16px;
+            border-radius: 999px;
+            background: #2563eb;
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.45);
+            border: none;
+            cursor: pointer;
+            margin-bottom: 6px;
+        }
+
+        .vcf-button:hover {
+            background: #1d4ed8;
+        }
+
+        .vcf-hint {
+            font-size: 0.8rem;
+            color: var(--text-muted);
         }
 
         header {
@@ -450,6 +483,17 @@
             <span>✉️ <a href="mailto:naelinspirations@outlook.com">naelinspirations@outlook.com</a></span>
             <span>🌐 <a href="https://www.printed3d.gr" target="_blank" rel="noopener">www.printed3d.gr</a></span>
         </div>
+
+        <!-- ΜΠΛΕ ΚΟΥΜΠΙ vCard ΚΑΤΩ ΑΠΟ ΤΟ LOGO -->
+        <div class="vcf-block">
+            <a class="vcf-button" href="nael_inspirations.vcf">
+                📇 Προσθήκη επαφής (vCard)
+            </a>
+            <div class="vcf-hint">
+                Σε Android / iPhone άνοιξε το αρχείο που θα κατέβει, για να αποθηκευτεί
+                αυτόματα η επαφή «Νάσος Ψαραδάκης – NAEL Inspirations».
+            </div>
+        </div>
     </div>
 
     <header>
@@ -467,6 +511,7 @@
             <a href="#nael">NAEL Inspirations</a>
             <a href="#process">Πώς δουλεύω</a>
             <a href="#ideas">Ιδέες &amp; εφαρμογές</a>
+            <a href="#gallery">Gallery</a>
             <a href="#contact">Επικοινωνία</a>
         </nav>
     </header>
@@ -628,6 +673,15 @@
         </p>
     </section>
 
+    <!-- GALLERY -->
+    <section class="card" id="gallery" style="margin-top: 22px;">
+        <h2>Gallery – Δείγματα δουλειών</h2>
+        <p class="muted">
+            Μερικές ενδεικτικές εικόνες από 3D εκτυπώσεις και χειροποίητες δημιουργίες.
+        </p>
+        <div id="gallery-grid" class="cols-2" style="margin-top: 8px;"></div>
+    </section>
+
     <section class="card" id="ideas" style="margin-top: 22px;">
         <h2>Ιδέες &amp; Εφαρμογές</h2>
         <p>
@@ -661,15 +715,6 @@
                 </p>
             </div>
         </div>
-    </section>
-
-    <!-- GALLERY ΑΠΟ ΤΟΝ ΙΔΙΟ ΦΑΚΕΛΟ ΜΕ ΤΗ ΣΕΛΙΔΑ -->
-    <section class="card" id="gallery" style="margin-top: 22px;">
-        <h2>Gallery – Δείγματα δουλειών</h2>
-        <p class="muted">
-            .
-        </p>
-        <div id="gallery-grid" class="cols-2" style="margin-top: 8px;"></div>
     </section>
 
     <section class="card" id="contact" style="margin-top: 22px;">
@@ -713,8 +758,7 @@
     // --------- AUTO GALLERY ΑΠΟ ΤΟ ROOT ΤΟΥ REPO ----------
     const GITHUB_USER = "nasosps";
     const GITHUB_REPO = "page";
-    // κενό path = root του repo
-    const IMAGES_PATH = "";
+    const IMAGES_PATH = ""; // root του repo
 
     const galleryGrid = document.getElementById("gallery-grid");
 
@@ -722,9 +766,7 @@
         if (!galleryGrid) return;
 
         const base = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents`;
-        const apiUrl = IMAGES_PATH
-            ? `${base}/${IMAGES_PATH}`
-            : base;
+        const apiUrl = IMAGES_PATH ? `${base}/${IMAGES_PATH}` : base;
 
         try {
             const response = await fetch(apiUrl);
@@ -736,7 +778,7 @@
 
             const files = await response.json();
             if (!Array.isArray(files) || files.length === 0) {
-                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες στο repo.</p>';
+                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες στο repository.</p>';
                 return;
             }
 
@@ -763,7 +805,7 @@
             });
 
             if (html === "") {
-                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες (png/jpg/gif/webp/svg) στο root του repo.</p>';
+                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες (png/jpg/gif/webp/svg).</p>';
             } else {
                 galleryGrid.innerHTML = html;
             }

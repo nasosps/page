@@ -442,7 +442,6 @@
 
     <!-- ΛΟΓΟΤΥΠΟ & ΒΑΣΙΚΑ ΣΤΟΙΧΕΙΑ -->
     <div class="logo-block">
-        <!-- άλλαξε το src αν χρειάζεται -->
         <img src="logo-nael.png" alt="NAEL Inspirations logo">
         <div class="logo-text-main">Νάσος Ψαραδάκης</div>
         <div class="logo-text-sub">Σχεδιασμός &amp; Εκτυπώσεις 3D • NAEL Inspirations • printed3d.gr</div>
@@ -664,11 +663,12 @@
         </div>
     </section>
 
-    <!-- GALLERY ΑΠΟ ΦΑΚΕΛΟ images/ ΣΤΟ GITHUB -->
+    <!-- GALLERY ΑΠΟ ΤΟΝ ΙΔΙΟ ΦΑΚΕΛΟ ΜΕ ΤΗ ΣΕΛΙΔΑ -->
     <section class="card" id="gallery" style="margin-top: 22px;">
         <h2>Gallery – Δείγματα δουλειών</h2>
         <p class="muted">
-            Οι εικόνες φορτώνονται αυτόματα από τον φάκελο <code>images/</code> του GitHub repo.
+            Οι εικόνες φορτώνονται αυτόματα από τα αρχεία εικόνας (png/jpg/gif/webp/svg) 
+            που βρίσκονται στον ίδιο φάκελο με το αρχείο <code>index.html</code> στο GitHub repo.
         </p>
         <div id="gallery-grid" class="cols-2" style="margin-top: 8px;"></div>
     </section>
@@ -711,17 +711,21 @@
     // Αυτόματο έτος στο footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // --------- AUTO GALLERY ΑΠΟ GITHUB /images ----------
+    // --------- AUTO GALLERY ΑΠΟ ΤΟ ROOT ΤΟΥ REPO ----------
     const GITHUB_USER = "nasosps";
     const GITHUB_REPO = "page";
-    const IMAGES_PATH = "images";
+    // κενό path = root του repo
+    const IMAGES_PATH = "";
 
     const galleryGrid = document.getElementById("gallery-grid");
 
     async function loadGalleryFromGithub() {
         if (!galleryGrid) return;
 
-        const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${IMAGES_PATH}`;
+        const base = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents`;
+        const apiUrl = IMAGES_PATH
+            ? `${base}/${IMAGES_PATH}`
+            : base;
 
         try {
             const response = await fetch(apiUrl);
@@ -733,7 +737,7 @@
 
             const files = await response.json();
             if (!Array.isArray(files) || files.length === 0) {
-                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες στον φάκελο images.</p>';
+                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες στο repo.</p>';
                 return;
             }
 
@@ -746,7 +750,7 @@
                 const ext = name.split(".").pop().toLowerCase();
                 if (!allowedExt.includes(ext)) return;
 
-                const fileUrl = file.download_url; // απευθείας URL της εικόνας
+                const fileUrl = file.download_url;
                 const safeName = name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
                 html += `
@@ -760,7 +764,7 @@
             });
 
             if (html === "") {
-                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες στον φάκελο images.</p>';
+                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες (png/jpg/gif/webp/svg) στο root του repo.</p>';
             } else {
                 galleryGrid.innerHTML = html;
             }

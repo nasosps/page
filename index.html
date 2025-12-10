@@ -461,17 +461,17 @@
             bottom: 4px;
             right: 6px;
             font-size: 0.7rem;
-            z-index: 1;
-            user-select: text;
+            z-index: 10;
         }
 
         .page-views img {
-            opacity: 0.08;      /* σχεδόν αόρατο */
-            height: 16px;       /* μικρό, διακριτικό */
+            opacity: 0.1;      /* πολύ διακριτικό */
+            height: 16px;      /* μικρό, διακριτικό */
+            display: block;
         }
 
         .page-views img:hover {
-            opacity: 0.4;       /* αν το βάλεις επάνω με το ποντίκι, να φαίνεται λίγο περισσότερο */
+            opacity: 0.4;      /* αν περάσεις από πάνω με το ποντίκι, φαίνεται λίγο περισσότερο */
         }
 
         @media (max-width: 900px) {
@@ -514,7 +514,7 @@
 
         <!-- ΜΠΛΕ ΚΟΥΜΠΙ vCard ΚΑΤΩ ΑΠΟ ΤΟ LOGO -->
         <div class="vcf-block">
-            <a class="vcf-button" href="nael_inspirations.vcf">
+            <a class="vcf-button" href="nael_inspirations.vcf" download>
                 📇 Προσθήκη επαφής (vCard)
             </a>
             <div class="vcf-hint">

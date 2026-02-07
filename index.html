@@ -1,857 +1,713 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="el" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
-    <title>printed3d.gr &amp; NAEL Inspirations – 3D Εκτυπώσεις &amp; Χειροποίητες Δημιουργίες</title>
+    <title>printed3d.gr & NAEL Inspirations – 3D Εκτυπώσεις & Χειροποίητες Δημιουργίες</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="printed3d.gr &amp; NAEL Inspirations – 3D εκτυπώσεις, χειροποίητες δημιουργίες, μπομπονιέρες, δώρα και custom projects.">
+    <meta name="description"
+        content="printed3d.gr & NAEL Inspirations – 3D εκτυπώσεις, χειροποίητες δημιουργίες, μπομπονιέρες, δώρα και custom projects.">
+
+    <!-- Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
+        rel="stylesheet">
+
     <style>
-        :root {
-            --bg-color: #f5f5f7;
-            --card-bg: #ffffff;
-            --accent: #ff6b3d;
-            --accent-dark: #e3562a;
-            --text-main: #222222;
-            --text-muted: #666666;
-            --border-soft: #e0e0e0;
-            --shadow-soft: 0 12px 30px rgba(0, 0, 0, 0.06);
-            --radius-lg: 18px;
-            --radius-xl: 26px;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            background: radial-gradient(circle at top left, #ffe9df 0, #f5f5f7 45%, #f5f5f7 100%);
-            color: var(--text-main);
-            line-height: 1.6;
-            padding: 24px;
+            font-family: 'Outfit', sans-serif;
+            background-color: #f8fafc;
         }
 
-        .page {
-            max-width: 1100px;
-            margin: 0 auto;
+        h1,
+        h2,
+        h3,
+        .serif {
+            font-family: 'Outfit', sans-serif;
         }
 
-        /* Λογότυπο επάνω-επάνω, συμπαγές ασπρόμαυρο */
-        .logo-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            margin-bottom: 18px;
+        .font-serif-accent {
+            font-family: 'Playfair Display', serif;
         }
 
-        .logo-block img {
-            width: 160px;
-            height: 160px;
-            object-fit: contain;
-            filter: grayscale(100%) contrast(130%);
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .logo-text-main {
-            margin-top: 10px;
-            font-size: 1.1rem;
-            font-weight: 700;
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
-        .logo-text-sub {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 6px;
+        .gradient-text {
+            background: linear-gradient(135deg, #ea580c 0%, #db2777 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .logo-contacts {
-            font-size: 0.88rem;
-            color: var(--text-main);
+        .gradient-bg {
+            background: linear-gradient(135deg, #ea580c 0%, #db2777 100%);
         }
 
-        .logo-contacts span {
-            display: inline-block;
-            margin: 0 6px;
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
 
-        .logo-contacts a {
-            color: var(--text-main);
-            text-decoration: none;
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
         }
 
-        .logo-contacts a:hover {
-            text-decoration: underline;
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 5px;
         }
 
-        /* VCF BUTTON ΚΑΤΩ ΑΠΟ ΤΟ LOGO */
-        .vcf-block {
-            margin-top: 10px;
-            text-align: center;
-            max-width: 420px;
-        }
-
-        .vcf-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            padding: 9px 16px;
-            border-radius: 999px;
-            background: #2563eb;
-            color: #ffffff;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-decoration: none;
-            box-shadow: 0 8px 18px rgba(37, 99, 235, 0.45);
-            border: none;
-            cursor: pointer;
-            margin-bottom: 6px;
-        }
-
-        .vcf-button:hover {
-            background: #1d4ed8;
-        }
-
-        .vcf-hint {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .brand-block {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .brand-main {
-            font-size: 1.6rem;
-            font-weight: 700;
-        }
-
-        .brand-main span.nael {
-            color: var(--accent-dark);
-        }
-
-        .brand-sub {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .nav-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            font-size: 0.9rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            padding: 6px 10px;
-            border-radius: 999px;
-            border: 1px solid rgba(0,0,0,0.06);
-            background: rgba(255,255,255,0.85);
-            color: var(--text-main);
-            transition: all 0.15s ease-in-out;
-        }
-
-        .nav-links a:hover {
-            border-color: var(--accent);
-            color: var(--accent-dark);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-            transform: translateY(-1px);
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
-            gap: 24px;
-            margin-bottom: 26px;
-            align-items: stretch;
-        }
-
-        .hero-main {
-            background: linear-gradient(135deg, #ffffff, #ffece4);
-            border-radius: var(--radius-xl);
-            padding: 24px 26px;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid rgba(255,255,255,0.7);
-        }
-
-        .hero-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: rgba(0,0,0,0.04);
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-bottom: 10px;
-        }
-
-        .hero-pill span.dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #16a34a;
-            box-shadow: 0 0 0 4px rgba(22,163,74,0.18);
-        }
-
-        .hero-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .hero-subtitle {
-            font-size: 0.98rem;
-            color: var(--text-muted);
-            margin-bottom: 18px;
-        }
-
-        .hero-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 18px;
-        }
-
-        .hero-tags span {
-            font-size: 0.8rem;
-            padding: 4px 9px;
-            border-radius: 999px;
-            background: rgba(255,107,61,0.14);
-            border: 1px solid rgba(227,86,42,0.35);
-            color: var(--accent-dark);
-        }
-
-        .hero-cta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .btn-primary,
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            padding: 9px 15px;
-            border-radius: 999px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background: var(--accent);
-            color: #ffffff;
-            box-shadow: 0 8px 18px rgba(229, 92, 52, 0.35);
-        }
-
-        .btn-primary:hover {
-            background: var(--accent-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 10px 22px rgba(229, 92, 52, 0.42);
-        }
-
-        .btn-secondary {
-            background: rgba(255,255,255,0.9);
-            color: var(--text-main);
-            border: 1px solid rgba(0,0,0,0.08);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent-dark);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-            transform: translateY(-1px);
-        }
-
-        .hero-side {
-            background: rgba(255,255,255,0.96);
-            border-radius: var(--radius-xl);
-            padding: 18px 18px 20px;
-            box-shadow: var(--shadow-soft);
-            border: 1px solid rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .hero-side-title {
-            font-size: 1.05rem;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .hero-side-text {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 14px;
-        }
-
-        .hero-list {
-            list-style: none;
-            font-size: 0.88rem;
-            color: var(--text-main);
-            margin-bottom: 10px;
-        }
-
-        .hero-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 6px;
-            margin-bottom: 6px;
-        }
-
-        .hero-list li span.bullet {
-            font-size: 1rem;
-            line-height: 1.1;
-            color: var(--accent-dark);
-        }
-
-        main {
-            display: grid;
-            grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.8fr);
-            gap: 22px;
-            margin-bottom: 26px;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.98);
-            border-radius: var(--radius-lg);
-            padding: 18px 20px 20px;
-            box-shadow: 0 10px 24px rgba(0,0,0,0.04);
-            border: 1px solid rgba(0,0,0,0.04);
-        }
-
-        .card h2 {
-            font-size: 1.05rem;
-            margin-bottom: 8px;
-        }
-
-        .card h3 {
-            font-size: 0.95rem;
-            margin-top: 12px;
-            margin-bottom: 4px;
-        }
-
-        .card p {
-            font-size: 0.9rem;
-            margin-bottom: 6px;
-            color: var(--text-main);
-        }
-
-        .muted {
-            color: var(--text-muted);
-            font-size: 0.86rem;
-        }
-
-        .list {
-            padding-left: 16px;
-            margin-bottom: 6px;
-        }
-
-        .list li {
-            font-size: 0.9rem;
-            margin-bottom: 3px;
-        }
-
-        .pill-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 6px;
-            margin-bottom: 2px;
-        }
-
-        .pill {
-            font-size: 0.78rem;
-            padding: 3px 8px;
-            border-radius: 999px;
-            background: rgba(255,107,61,0.10);
-            color: var(--accent-dark);
-        }
-
-        .highlight {
-            font-weight: 600;
-            color: var(--accent-dark);
-        }
-
-        .cols-2 {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 10px 18px;
-        }
-
-        .idea-item {
-            font-size: 0.88rem;
-        }
-
-        .steps {
-            counter-reset: step;
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .steps li {
-            counter-increment: step;
-            margin-bottom: 4px;
-            font-size: 0.9rem;
-        }
-
-        .steps li::before {
-            content: counter(step) ".";
-            font-weight: 600;
-            margin-right: 4px;
-            color: var(--accent-dark);
-        }
-
-        .contact-card {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr);
-            gap: 16px;
-            margin-top: 8px;
-        }
-
-        .contact-row {
-            font-size: 0.9rem;
-            margin-bottom: 4px;
-        }
-
-        .contact-label {
-            font-weight: 600;
-            margin-right: 4px;
-        }
-
-        footer {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        footer a {
-            color: var(--accent-dark);
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Κρυφός μετρητής επισκέψεων – badge hitscounter.dev */
-        .page-views {
-            position: fixed;
-            bottom: 4px;
-            right: 6px;
-            font-size: 0.7rem;
-            z-index: 10;
-        }
-
-        .page-views img {
-            opacity: 0.1;      /* πολύ διακριτικό */
-            height: 16px;      /* μικρό, διακριτικό */
-            display: block;
-        }
-
-        .page-views img:hover {
-            opacity: 0.4;      /* αν περάσεις από πάνω με το ποντίκι, φαίνεται λίγο περισσότερο */
-        }
-
-        @media (max-width: 900px) {
-            body {
-                padding: 16px;
-            }
-
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .hero {
-                grid-template-columns: 1fr;
-            }
-
-            main {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-card {
-                grid-template-columns: 1fr;
-            }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
         }
     </style>
 </head>
-<body>
-<div class="page">
 
-    <!-- ΛΟΓΟΤΥΠΟ & ΒΑΣΙΚΑ ΣΤΟΙΧΕΙΑ -->
-    <div class="logo-block">
-        <img src="logo-nael.png" alt="NAEL Inspirations logo">
-        <div class="logo-text-main">Νάσος Ψαραδάκης</div>
-        <div class="logo-text-sub">Σχεδιασμός &amp; Εκτυπώσεις 3D • NAEL Inspirations • printed3d.gr</div>
-        <div class="logo-contacts">
-            <span>📞 690 863 6196</span>
-            <span>✉️ <a href="mailto:naelinspirations@outlook.com">naelinspirations@outlook.com</a></span>
-            <span>🌐 <a href="https://www.printed3d.gr" target="_blank" rel="noopener">www.printed3d.gr</a></span>
-        </div>
+<body class="text-slate-800 antialiased overflow-x-hidden selection:bg-orange-200 selection:text-orange-900">
 
-        <!-- ΜΠΛΕ ΚΟΥΜΠΙ vCard ΚΑΤΩ ΑΠΟ ΤΟ LOGO -->
-        <div class="vcf-block">
-            <a class="vcf-button" href="nael_inspirations.vcf" download>
-                📇 Προσθήκη επαφής (vCard)
-            </a>
-            <div class="vcf-hint">
-                Σε Android / iPhone άνοιξε το αρχείο που θα κατέβει, για να αποθηκευτεί
-                αυτόματα η επαφή «Νάσος Ψαραδάκης – NAEL Inspirations».
-            </div>
-        </div>
-    </div>
-
-    <header>
-        <div class="brand-block">
-            <div class="brand-main">
-                <span class="nael">NAEL Inspirations</span> • printed3d.gr
-            </div>
-            <div class="brand-sub">
-                3D Εκτυπώσεις &amp; Χειροποίητες Δημιουργίες – Προσωποποιημένα δώρα, μπομπονιέρες &amp; custom projects.
-            </div>
-        </div>
-        <nav class="nav-links">
-            <a href="#about">Ποιος είμαι</a>
-            <a href="#printed3d">3D Εκτυπώσεις</a>
-            <a href="#nael">NAEL Inspirations</a>
-            <a href="#process">Πώς δουλεύω</a>
-            <a href="#ideas">Ιδέες &amp; εφαρμογές</a>
-            <a href="#gallery">Gallery</a>
-            <a href="#contact">Επικοινωνία</a>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="hero-main">
-            <div class="hero-pill">
-                <span class="dot"></span>
-                Διαθέσιμος για νέες ιδέες &amp; συνεργασίες
-            </div>
-            <h1 class="hero-title">3D Printing &amp; Χειροποίητα Δώρα με προσωπικό χαρακτήρα</h1>
-            <p class="hero-subtitle">
-                Συνδυάζω την τεχνολογία της 3D εκτύπωσης με χειροποίητες λεπτομέρειες για να δημιουργώ 
-                ξεχωριστά αντικείμενα: από μπομπονιέρες γάμου/βάπτισης και εταιρικά δωράκια, μέχρι 
-                custom κατασκευές και καθημερινά αντικείμενα για το σπίτι ή τη δουλειά.
-            </p>
-            <div class="hero-tags">
-                <span>#printed3d</span>
-                <span>#nael_inspirations</span>
-                <span>#3dprinting</span>
-                <span>#χειροποίητα_δώρα</span>
-                <span>#custom_projects</span>
-            </div>
-            <div class="hero-cta">
-                <a class="btn-primary" href="#contact">
-                    Ζήτα προσφορά
-                </a>
-                <a class="btn-secondary" href="https://www.printed3d.gr" target="_blank" rel="noopener">
-                    Επίσκεψη στο printed3d.gr
-                </a>
-            </div>
-        </div>
-
-        <aside class="hero-side">
-            <div>
-                <h2 class="hero-side-title">Τι μπορώ να αναλάβω</h2>
-                <p class="hero-side-text">
-                    Δουλεύω σε μικρές και μεσαίες σειρές παραγωγής, αλλά και μεμονωμένα, 
-                    δίνοντας έμφαση στη λεπτομέρεια και στην επικοινωνία μαζί σου.
-                </p>
-                <ul class="hero-list">
-                    <li><span class="bullet">•</span><span>Μπομπονιέρες γάμου &amp; βάπτισης με 3D στοιχεία &amp; κορδέλες.</span></li>
-                    <li><span class="bullet">•</span><span>Προσωποποιημένα δώρα (ονόματα, ημερομηνίες, μηνύματα).</span></li>
-                    <li><span class="bullet">•</span><span>Χριστουγεννιάτικες &amp; εποχικές δημιουργίες.</span></li>
-                    <li><span class="bullet">•</span><span>Μικρά αντικείμενα οργάνωσης χώρου &amp; γραφείου.</span></li>
-                    <li><span class="bullet">•</span><span>Custom εκτυπώσεις από δικά σου 3D αρχεία (STL, OBJ κ.λπ.).</span></li>
-                </ul>
-            </div>
-        </aside>
-    </section>
-
-    <main>
-        <!-- Ποιος είμαι -->
-        <section class="card" id="about">
-            <h2>Ποιος είμαι</h2>
-            <p>
-                Ονομάζομαι <span class="highlight">Αναστάσιος (Νάσος) Ψαραδάκης</span> και δραστηριοποιούμαι στο Ηράκλειο Κρήτης, 
-                συνδυάζοντας την αγάπη μου για την τεχνολογία με τη δημιουργικότητα.
-            </p>
-            <p class="muted">
-                Μέσα από το <strong>printed3d.gr</strong> και το <strong>NAEL Inspirations</strong> 
-                σχεδιάζω και υλοποιώ αντικείμενα που έχουν πάντα κάτι προσωπικό: ένα όνομα, μια ημερομηνία, 
-                μια μικρή ιστορία πίσω από κάθε κατασκευή.
-            </p>
-            <p>
-                Στόχος μου είναι να προσφέρω:
-            </p>
-            <ul class="list">
-                <li>καθαρή και ποιοτική 3D εκτύπωση,</li>
-                <li>προσεγμένο φινίρισμα και δέσιμο με υφάσματα/κορδέλες/υλικά,</li>
-                <li>ειλικρινή ενημέρωση για χρόνους παράδοσης και κόστος,</li>
-                <li>φιλική, ανθρώπινη συνεργασία – από την πρώτη ιδέα μέχρι την παράδοση.</li>
-            </ul>
-        </section>
-
-        <!-- Τεχνικές δυνατότητες / printed3d -->
-        <section class="card" id="printed3d">
-            <h2>3D Εκτυπώσεις – printed3d.gr</h2>
-            <p>
-                Αναλαμβάνω <strong>3D εκτυπώσεις κατά παραγγελία</strong> για ιδιώτες και επαγγελματίες. 
-                Αν έχεις έτοιμο 3D αρχείο ή απλώς μια ιδέα στο μυαλό σου, μπορούμε να τη μετατρέψουμε σε πραγματικό αντικείμενο.
-            </p>
-            <h3>Τι αναλαμβάνω σε επίπεδο 3D εκτύπωσης</h3>
-            <ul class="list">
-                <li>Εκτύπωση από έτοιμα 3D αρχεία (STL, OBJ κ.λπ.).</li>
-                <li>Μικρές προσαρμογές σε μοντέλα (μέγεθος, απλές τροποποιήσεις).</li>
-                <li>Πρωτότυπα για δοκιμές (prototypes) μικρών αντικειμένων.</li>
-                <li>Επαναλαμβανόμενα κομμάτια για μικρές σειρές.</li>
-            </ul>
-            <h3>Υλικά &amp; αισθητική</h3>
-            <p class="muted">
-                Χρησιμοποιούνται κυρίως πλαστικά 3D printing (PLA κ.ά.), σε 
-                <strong>διάφορα χρώματα</strong> ανάλογα με τη διαθεσιμότητα και το project. 
-                Προτείνω πάντα συνδυασμούς χρωμάτων έτσι ώστε το τελικό αποτέλεσμα 
-                να ταιριάζει στο ύφος της εκδήλωσης ή του χώρου σου.
-            </p>
-            <div class="pill-row">
-                <span class="pill">Καθαρά layer lines</span>
-                <span class="pill">Προσεκτικό φινίρισμα</span>
-                <span class="pill">Έλεγχος ποιότητας κάθε τεμαχίου</span>
-            </div>
-        </section>
-    </main>
-
-    <section class="card" id="nael">
-        <h2>NAEL Inspirations – Χειροποίητες Δημιουργίες &amp; 3D Στοιχεία</h2>
-        <p>
-            Το <strong>NAEL Inspirations</strong> είναι η πιο «χειροποίητη» πλευρά μου: 
-            συνδυάζω 3D εκτυπώσεις με κορδέλες, τούλια, διακοσμητικά στοιχεία και άλλα υλικά, 
-            δημιουργώντας ολοκληρωμένα δώρα και συνθέσεις.
-        </p>
-
-        <div class="cols-2" style="margin-top: 10px;">
-            <div>
-                <h3>Ενδεικτικές κατηγορίες</h3>
-                <ul class="list">
-                    <li>Μπομπονιέρες γάμου &amp; βάπτισης με 3D στοιχεία.</li>
-                    <li>Συνθέσεις με <strong>τούλι &amp; κορδέλες</strong> για ειδικές περιστάσεις.</li>
-                    <li>Προσωποποιημένα κρεμαστά / διακοσμητικά με ονόματα.</li>
-                    <li>Εποχιακές δημιουργίες (Χριστούγεννα, Πάσχα, δώρα εκπαιδευτικών κ.λπ.).</li>
-                </ul>
-            </div>
-            <div>
-                <h3>Τι προσθέτει το χειροποίητο κομμάτι</h3>
-                <p class="idea-item">
-                    Η χειροποίητη δουλειά επιτρέπει να «δέσουμε» την 3D εκτύπωση με υφές, 
-                    χρώματα και μικρές λεπτομέρειες που κάνουν κάθε κομμάτι μοναδικό.
-                </p>
-                <p class="idea-item">
-                    Ειδικά σε γάμους, βαπτίσεις και προσωπικά δώρα, φροντίζω το τελικό 
-                    αποτέλεσμα να ταιριάζει στην αισθητική και την ιστορία του ζευγαριού ή του προσώπου.
-                </p>
-            </div>
-        </div>
-
-        <div class="pill-row" style="margin-top: 8px;">
-            <span class="pill">Custom χρώματα &amp; θεματικές</span>
-            <span class="pill">Συνδυασμός 3D print + υφάσματα</span>
-            <span class="pill">Μικρές &amp; μεσαίες ποσότητες</span>
-        </div>
-    </section>
-
-    <section class="card" id="process" style="margin-top: 22px;">
-        <h2>Πώς δουλεύω – Από την ιδέα στο αντικείμενο</h2>
-        <p>
-            Προτιμώ η συνεργασία να είναι απλή και ξεκάθαρη. Συνήθως ακολουθούμε τα εξής βήματα:
-        </p>
-        <ol class="steps">
-            <li>Μου στέλνεις ένα μήνυμα με την ιδέα σου (περίσταση, ποσότητα, ύφος, χρώματα).</li>
-            <li>Αν έχεις 3D αρχείο, το στέλνεις· αν όχι, περιγράφεις όσο πιο συγκεκριμένα γίνεται τι θέλεις.</li>
-            <li>Συζητάμε πιθανές λύσεις, υλικά, χρώματα και ενδεικτικό κόστος.</li>
-            <li>Οριστικοποιούμε το σχέδιο και το χρονοδιάγραμμα.</li>
-            <li>Ξεκινά η παραγωγή.</li>
-            <li>Παράδοση των κομματιών στο συμφωνημένο σημείο ή αποστολή με courier.</li>
-        </ol>
-        <p class="muted" style="margin-top: 6px;">
-            Για μεγαλύτερες ποσότητες (π.χ. πολλές μπομπονιέρες), είναι καλό να υπάρχει 
-            λίγο περισσότερος χρόνος προετοιμασίας, ώστε να εξασφαλίζεται η ποιότητα και η συνέπεια στην παράδοση.
-        </p>
-    </section>
-
-    <!-- GALLERY -->
-    <section class="card" id="gallery" style="margin-top: 22px;">
-        <h2>Gallery – Δείγματα δουλειών</h2>
-        <p class="muted">
-            Μερικές ενδεικτικές εικόνες από 3D εκτυπώσεις και χειροποίητες δημιουργίες.
-        </p>
-        <div id="gallery-grid" class="cols-2" style="margin-top: 8px;"></div>
-    </section>
-
-    <section class="card" id="ideas" style="margin-top: 22px;">
-        <h2>Ιδέες &amp; Εφαρμογές</h2>
-        <p>
-            Μερικές ιδέες για το πώς μπορούμε να αξιοποιήσουμε την 3D εκτύπωση και το NAEL Inspirations:
-        </p>
-        <div class="cols-2" style="margin-top: 8px;">
-            <div>
-                <h3>Για εκδηλώσεις</h3>
-                <ul class="list">
-                    <li>Μπομπονιέρες με 3D διακοσμητικό και δέσιμο με κορδέλα/τούλι.</li>
-                    <li>Αριθμοί τραπεζιών ή μικρές ταμπέλες με ονόματα καλεσμένων.</li>
-                    <li>Μικρά ευχαριστήρια δώρα για κουμπάρους/νονούς.</li>
-                </ul>
-                <h3>Για το σπίτι &amp; το γραφείο</h3>
-                <ul class="list">
-                    <li>Βάσεις για στυλό, μικροαντικείμενα οργάνωσης.</li>
-                    <li>Μικρά διακοσμητικά με ονόματα ή λέξεις (π.χ. “Home”, “Love”).</li>
-                    <li>Στήριγματα για καλώδια, μικρά πρακτικά αντικείμενα.</li>
-                </ul>
-            </div>
-            <div>
-                <h3>Για δώρα</h3>
-                <ul class="list">
-                    <li>Προσωποποιημένα δώρα για γενέθλια ή επετείους.</li>
-                    <li>Δώρα για δασκάλους/εκπαιδευτικούς στο τέλος της χρονιάς.</li>
-                    <li>Χριστουγεννιάτικες μπάλες ή στολίδια με ονόματα.</li>
-                </ul>
-                <p class="muted" style="margin-top: 6px;">
-                    Αν έχεις δει κάτι στο διαδίκτυο που σου αρέσει, μπορείς να μου το στείλεις 
-                    ως έμπνευση, ώστε να συζητήσουμε αν και πώς μπορεί να υλοποιηθεί.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="card" id="contact" style="margin-top: 22px;">
-        <h2>Επικοινωνία</h2>
-        <p>
-            Για οποιαδήποτε ιδέα ή ερώτηση, μπορείς να επικοινωνήσεις μαζί μου με τους παρακάτω τρόπους.
-        </p>
-
-        <div class="contact-card">
-            <div>
-                <div class="contact-row">
-                    <span class="contact-label">Email:</span>
-                    <span><a href="mailto:naelinspirations@outlook.com">naelinspirations@outlook.com</a></span>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo / Brand -->
+                <div class="flex items-center gap-3">
+                    <img src="logo-nael.png" alt="Logo" class="h-10 w-10 object-contain rounded-full shadow-md">
+                    <div class="leading-tight">
+                        <div class="font-bold text-lg tracking-tight">NAEL <span
+                                class="font-normal text-slate-500">Inspirations</span></div>
+                        <div class="text-[10px] uppercase tracking-widest text-orange-600 font-bold">printed3d.gr</div>
+                    </div>
                 </div>
-                <div class="contact-row">
-                    <span class="contact-label">Τηλ. / Κινητό:</span>
-                    <span>+30 690 863 6196</span>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium hover:text-orange-600 transition">Ποιος είμαι</a>
+                    <a href="#printed3d" class="text-sm font-medium hover:text-orange-600 transition">3D Printing</a>
+                    <a href="#nael" class="text-sm font-medium hover:text-orange-600 transition">Handmade</a>
+                    <a href="#gallery" class="text-sm font-medium hover:text-orange-600 transition">Gallery</a>
+                    <a href="#contact"
+                        class="px-5 py-2.5 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-orange-600 transition shadow-lg hover:shadow-orange-500/30 transform hover:-translate-y-0.5">Επικοινωνία</a>
                 </div>
-                <div class="contact-row">
-                    <span class="contact-label">Ιστότοπος:</span>
-                    <a href="https://www.printed3d.gr" target="_blank" rel="noopener">www.printed3d.gr</a>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
-                <div class="contact-row">
-                    <span class="contact-label">Instagram:</span>
-                    <span>@nael_inspirations</span>
+            </div>
+
+            <!-- Mobile Menu (Hidden by default) -->
+            <div class="md:hidden hidden bg-white/95 backdrop-blur-xl border-t border-slate-100 absolute top-20 left-0 w-full shadow-xl transition-all duration-300 transform origin-top"
+                id="mobile-menu">
+                <div class="px-4 pt-4 pb-6 space-y-2">
+                    <a href="#about"
+                        class="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition">Ποιος
+                        είμαι</a>
+                    <a href="#printed3d"
+                        class="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition">3D
+                        Printing</a>
+                    <a href="#nael"
+                        class="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition">Handmade</a>
+                    <a href="#gallery"
+                        class="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition">Gallery</a>
+                    <a href="#contact"
+                        class="block px-4 py-3 mt-4 text-center rounded-xl text-base font-bold bg-slate-900 text-white hover:bg-orange-600 shadow-lg transition">Επικοινωνία</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Decor -->
+        <div class="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
+            <div
+                class="absolute -top-[20%] -right-[10%] w-[800px] h-[800px] rounded-full bg-orange-100/50 blur-3xl animate-pulse delay-700">
+            </div>
+            <div
+                class="absolute top-[20%] -left-[10%] w-[600px] h-[600px] rounded-full bg-rose-100/50 blur-3xl animate-pulse">
+            </div>
+            <div class="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-t from-white to-transparent"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Hero Content -->
+                <div data-aos="fade-right" data-aos-duration="1000">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-orange-600 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                        Διαθέσιμος για νέα projects
+                    </div>
+
+                    <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight mb-6 text-slate-900">
+                        Δημιουργώ <br>
+                        <span class="gradient-text font-serif-accent italic pr-2">μοναδικά</span> αντικείμενα.
+                    </h1>
+
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-xl">
+                        Συνδυάζω την ακρίβεια της <strong>3D εκτύπωσης</strong> με τη φινέτσα του
+                        <strong>χειροποίητου</strong>.
+                        Από custom μπομπονιέρες και δώρα, μέχρι εξειδικευμένες κατασκευές.
+                    </p>
+
+                    <div class="flex flex-wrap gap-4">
+                        <a href="nael_inspirations.vcf" download
+                            class="group flex items-center gap-3 px-6 py-4 rounded-full bg-slate-900 text-white font-bold shadow-xl hover:bg-slate-800 transition transform hover:-translate-y-1">
+                            <i class="fas fa-address-card text-orange-400 group-hover:scale-110 transition"></i>
+                            <span>Αποθήκευση Επαφής (vCard)</span>
+                        </a>
+                        <a href="#gallery"
+                            class="flex items-center gap-3 px-6 py-4 rounded-full bg-white text-slate-900 font-bold border border-slate-200 shadow-lg hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 transition transform hover:-translate-y-1">
+                            <span>Δες δουλειές μου</span>
+                            <i class="fas fa-arrow-right text-sm"></i>
+                        </a>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="mt-10 flex flex-wrap gap-2 opacity-70">
+                        <span
+                            class="px-3 py-1 rounded-lg bg-slate-100 text-xs font-medium text-slate-500">#3dprinting</span>
+                        <span
+                            class="px-3 py-1 rounded-lg bg-slate-100 text-xs font-medium text-slate-500">#handmade</span>
+                        <span
+                            class="px-3 py-1 rounded-lg bg-slate-100 text-xs font-medium text-slate-500">#custom_gifts</span>
+                        <span
+                            class="px-3 py-1 rounded-lg bg-slate-100 text-xs font-medium text-slate-500">#nael_inspirations</span>
+                    </div>
+                </div>
+
+                <!-- Hero Image / Visual -->
+                <div class="relative lg:h-[600px] flex items-center justify-center p-8" data-aos="fade-left"
+                    data-aos-duration="1200">
+                    <div class="relative w-full max-w-md aspect-square">
+                        <!-- Blob Background -->
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-orange-200 to-rose-200 rounded-full blur-2xl transform scale-110 animate-pulse">
+                        </div>
+
+                        <!-- Main Image Container -->
+                        <div
+                            class="relative h-full w-full bg-white/80 backdrop-blur-xl rounded-3xl border border-white/50 shadow-2xl overflow-hidden flex flex-col items-center justify-center p-8 text-center group">
+                            <img src="logo-nael.png" alt="Nael Logo"
+                                class="w-48 h-48 object-contain mb-6 drop-shadow-xl transform group-hover:scale-110 transition duration-500">
+                            <h3 class="text-2xl font-bold text-slate-800 mb-2">Νάσος Ψαραδάκης</h3>
+                            <p class="text-slate-500 text-sm mb-6">Founder & Maker</p>
+
+                            <div class="flex gap-4">
+                                <a href="mailto:naelinspirations@outlook.com"
+                                    class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-orange-500 hover:text-white transition shadow-sm">
+                                    <i class="fas fa-envelope"></i>
+                                </a>
+                                <a href="tel:+306908636196"
+                                    class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-green-500 hover:text-white transition shadow-sm">
+                                    <i class="fas fa-phone"></i>
+                                </a>
+                                <a href="https://www.printed3d.gr" target="_blank"
+                                    class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-blue-500 hover:text-white transition shadow-sm">
+                                    <i class="fas fa-globe"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 animate-bounce"
+                            style="animation-duration: 3s;">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 font-bold uppercase">Response Rate</div>
+                                    <div class="text-sm font-bold text-slate-800">Very Fast</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer>
-        © <span id="year"></span> printed3d.gr &amp; NAEL Inspirations – 3D Εκτυπώσεις &amp; Χειροποίητες Δημιουργίες.
-        Όλα τα δικαιώματα διατηρούνται.
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-up">
+                    <h2 class="text-4xl font-extrabold text-slate-900 mb-6">Η ιστορία πίσω από το <span
+                            class="gradient-text">NAEL</span></h2>
+                    <div class="w-20 h-1.5 gradient-bg rounded-full mb-8"></div>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        Ονομάζομαι <strong class="text-slate-900">Αναστάσιος (Νάσος) Ψαραδάκης</strong>. Η αγάπη μου για
+                        την τεχνολογία και η ανάγκη μου για δημιουργία γέννησαν δύο brands που αλληλοσυμπληρώνονται.
+                    </p>
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                        Μέσα από το <strong>printed3d.gr</strong> εστιάζω στην τεχνική αρτιότητα της 3D εκτύπωσης. Με το
+                        <strong>NAEL Inspirations</strong>, προσθέτω την ανθρώπινη, καλλιτεχνική πινελιά. Στόχος μου
+                        είναι κάθε αντικείμενο να αφηγείται μια μικρή ιστορία.
+                    </p>
+
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-orange-500 mt-1"></i>
+                            <span class="text-slate-700">Καθαρή και ποιοτική 3D εκτύπωση</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-orange-500 mt-1"></i>
+                            <span class="text-slate-700">Προσεγμένο φινίρισμα με υφάσματα & υλικά</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-check-circle text-orange-500 mt-1"></i>
+                            <span class="text-slate-700">Προσωπική επικοινωνία & συνέπεια</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="relative" data-aos="zoom-in">
+                    <div class="absolute inset-0 bg-slate-900 rounded-3xl transform rotate-3 opacity-5"></div>
+                    <img src="logo-nael.png"
+                        class="relative rounded-3xl shadow-none w-full max-w-sm mx-auto p-12 bg-slate-50 border border-slate-100"
+                        alt="About Image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="printed3d" class="py-24 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">Τεχνολογία & Κλασική Αξία</h2>
+                <p class="text-slate-600 text-lg">Δύο κόσμοι που ενώνονται για να δημιουργήσουν κάτι ξεχωριστό.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 3D Printing Card -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 hover:shadow-2xl transition duration-300 group"
+                    data-aos="fade-up" data-aos-delay="0">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center text-blue-600 text-3xl mb-8 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-600 transition">3D Printing
+                    </h3>
+                    <p class="text-slate-600 mb-6">
+                        Εκτυπώσεις ακριβείας κατά παραγγελία. Από πρωτότυπα (prototypes) και ανταλλακτικά, μέχρι
+                        διακοσμητικά και χρηστικά αντικείμενα.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-500 mb-8">
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Εκτύπωση από STL/OBJ
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Custom τροποποιήσεις
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-blue-500"></div> Μεγάλη ποικιλία χρωμάτων (PLA)
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-block text-blue-600 font-bold hover:underline">Μάθε περισσότερα <i
+                            class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Handmade Card -->
+                <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100 hover:shadow-2xl transition duration-300 group"
+                    id="nael" data-aos="fade-up" data-aos-delay="100">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-purple-50 flex items-center justify-center text-purple-600 text-3xl mb-8 group-hover:scale-110 transition duration-300">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-purple-600 transition">Handmade &
+                        Decor</h3>
+                    <p class="text-slate-600 mb-6">
+                        Το <strong>NAEL Inspirations</strong> παντρεύει την τεχνολογία με το χειροποίητο. Κορδέλες,
+                        τούλια και υφάσματα αγκαλιάζουν τις 3D δημιουργίες.
+                    </p>
+                    <ul class="space-y-2 text-sm text-slate-500 mb-8">
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Μπομπονιέρες Γάμου / Βάπτισης
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Προσωποποιημένα Δώρα
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <div class="w-1.5 h-1.5 rounded-full bg-purple-500"></div> Εποχιακές Συνθέσεις
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-block text-purple-600 font-bold hover:underline">Δες ιδέες <i
+                            class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ideas Grid -->
+    <section class="py-20 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div data-aos="fade-right">
+                <h2 class="text-3xl font-bold text-slate-900 mb-12">Ιδέες για κάθε περίσταση</h2>
+            </div>
+
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
+                <div class="group relative rounded-2xl overflow-hidden aspect-square shadow-lg" data-aos="zoom-in"
+                    data-aos-delay="0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Wedding"
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <h4 class="text-white font-bold text-lg">Γάμος</h4>
+                        <p
+                            class="text-slate-300 text-xs mt-1 opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
+                            Μπομπονιέρες & Decor</p>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden aspect-square shadow-lg" data-aos="zoom-in"
+                    data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1519689680058-324335c77eba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Baby"
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <h4 class="text-white font-bold text-lg">Βάπτιση</h4>
+                        <p
+                            class="text-slate-300 text-xs mt-1 opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
+                            Θεματικά πακέτα</p>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden aspect-square shadow-lg" data-aos="zoom-in"
+                    data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Gifts"
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <h4 class="text-white font-bold text-lg">Δώρα</h4>
+                        <p
+                            class="text-slate-300 text-xs mt-1 opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
+                            Προσωποποιημένα</p>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-2xl overflow-hidden aspect-square shadow-lg" data-aos="zoom-in"
+                    data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                        alt="Office"
+                        class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700">
+                    <div class="absolute bottom-0 left-0 p-6 z-20">
+                        <h4 class="text-white font-bold text-lg">Γραφείο</h4>
+                        <p
+                            class="text-slate-300 text-xs mt-1 opacity-0 group-hover:opacity-100 transition transform translate-y-2 group-hover:translate-y-0">
+                            Organization & Style</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-slate-500 mt-6 text-sm italic">Οι φωτογραφίες αυτής της ενότητας είναι
+                ενδεικτικές.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Dynamic) -->
+    <section id="gallery" class="py-24 bg-slate-900 text-white relative">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16" data-aos="fade-down">
+                <span class="text-orange-500 font-bold tracking-widest uppercase text-sm">Portfolio</span>
+                <h2 class="text-4xl font-extrabold mt-2">Δείγματα Δουλειάς</h2>
+                <div class="w-16 h-1 bg-orange-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <!-- This grid gets populated by JS -->
+            <div id="gallery-grid" class="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+                <!-- Loader placeholder -->
+                <div class="w-full h-48 bg-slate-800 rounded-xl animate-pulse flex items-center justify-center">
+                    <i class="fas fa-spinner fa-spin text-3xl text-slate-600"></i>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <p class="text-slate-400 text-sm">Οι εικόνες φορτώνουν αυτόματα από το repository.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="py-24 bg-orange-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-slate-900">Πώς να παραγγείλεις</h2>
+                <p class="text-slate-600 mt-2">Απλά βήματα για να κάνουμε την ιδέα σου πραγματικότητα.</p>
+            </div>
+
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-6 md:left-1/2 h-full w-0.5 bg-orange-200 transform md:-translate-x-1/2"></div>
+
+                <!-- Steps -->
+                <div class="space-y-12">
+                    <!-- Step 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center gap-8 group" data-aos="fade-up">
+                        <div class="flex-1 md:text-right order-2 md:order-1">
+                            <h3 class="text-xl font-bold text-slate-900">Επικοινωνία</h3>
+                            <p class="text-slate-600">Στείλε μου την ιδέα, την περίσταση και τα χρώματα που προτιμάς.
+                            </p>
+                        </div>
+                        <div
+                            class="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-orange-500 flex items-center justify-center text-orange-600 font-bold shadow-lg md:order-2 order-1 flex-shrink-0 group-hover:scale-110 transition">
+                            1</div>
+                        <div class="flex-1 order-3 opacity-0 md:opacity-100"></div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center gap-8 group" data-aos="fade-up">
+                        <div class="flex-1 opacity-0 md:opacity-100 order-2 md:order-1"></div>
+                        <div
+                            class="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-rose-500 flex items-center justify-center text-rose-600 font-bold shadow-lg md:order-2 order-1 flex-shrink-0 group-hover:scale-110 transition">
+                            2</div>
+                        <div class="flex-1 order-3">
+                            <h3 class="text-xl font-bold text-slate-900">Σχεδιασμός</h3>
+                            <p class="text-slate-600">Συζητάμε τις λεπτομέρειες, το budget και το χρονοδιάγραμμα.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center gap-8 group" data-aos="fade-up">
+                        <div class="flex-1 md:text-right order-2 md:order-1">
+                            <h3 class="text-xl font-bold text-slate-900">Παραγωγή</h3>
+                            <p class="text-slate-600">Η παραγγελία μπαίνει σε σειρά για εκτύπωση και φινίρισμα.</p>
+                        </div>
+                        <div
+                            class="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-purple-500 flex items-center justify-center text-purple-600 font-bold shadow-lg md:order-2 order-1 flex-shrink-0 group-hover:scale-110 transition">
+                            3</div>
+                        <div class="flex-1 order-3 opacity-0 md:opacity-100"></div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex flex-col md:flex-row items-center gap-8 group" data-aos="fade-up">
+                        <div class="flex-1 opacity-0 md:opacity-100 order-2 md:order-1"></div>
+                        <div
+                            class="relative z-10 w-12 h-12 rounded-full bg-white border-4 border-green-500 flex items-center justify-center text-green-600 font-bold shadow-lg md:order-2 order-1 flex-shrink-0 group-hover:scale-110 transition">
+                            4</div>
+                        <div class="flex-1 order-3">
+                            <h3 class="text-xl font-bold text-slate-900">Παράδοση</h3>
+                            <p class="text-slate-600">Παραλαβή από Ηράκλειο ή αποστολή στον χώρο σου.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-slate-900 text-slate-300 py-16 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Brand -->
+                <div class="col-span-1 lg:col-span-1">
+                    <img src="logo-nael.png" alt="Logo White"
+                        class="h-16 w-16 mb-6 opacity-90 rounded-2xl bg-white/10 p-2">
+                    <h3 class="text-white text-xl font-bold mb-4">NAEL Inspirations</h3>
+                    <p class="text-sm leading-relaxed mb-6">
+                        3D Εκτυπώσεις & Χειροποίητες Δημιουργίες με αγάπη από το Ηράκλειο Κρήτης.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com" class="hover:text-white transition"><i
+                                class="fab fa-facebook text-xl"></i></a>
+                        <a href="https://www.instagram.com" class="hover:text-white transition"><i
+                                class="fab fa-instagram text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold mb-6">Menu</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#about" class="hover:text-orange-400 transition">Ποιος είμαι</a></li>
+                        <li><a href="#printed3d" class="hover:text-orange-400 transition">3D Printing</a></li>
+                        <li><a href="#nael" class="hover:text-orange-400 transition">Handmade</a></li>
+                        <li><a href="#gallery" class="hover:text-orange-400 transition">Gallery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="lg:col-span-2">
+                    <h4 class="text-white font-bold mb-6">Επικοινωνία</h4>
+                    <div class="grid sm:grid-cols-2 gap-6">
+                        <a href="tel:+306908636196"
+                            class="flex items-center gap-4 bg-slate-800 p-4 rounded-xl hover:bg-slate-700 transition group">
+                            <div
+                                class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-green-500 group-hover:scale-110 transition">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500 uppercase font-bold">Καλέστε με</div>
+                                <div class="text-white font-bold">690 863 6196</div>
+                            </div>
+                        </a>
+
+                        <a href="mailto:naelinspirations@outlook.com"
+                            class="flex items-center gap-4 bg-slate-800 p-4 rounded-xl hover:bg-slate-700 transition group">
+                            <div
+                                class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-orange-500 group-hover:scale-110 transition">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-500 uppercase font-bold">Email</div>
+                                <div class="text-white font-bold text-sm">naelinspirations@outlook.com</div>
+                            </div>
+                        </a>
+
+                        <a href="nael_inspirations.vcf" download
+                            class="sm:col-span-2 flex items-center gap-4 bg-gradient-to-r from-orange-600 to-rose-600 p-4 rounded-xl hover:shadow-lg hover:shadow-orange-900/50 transition group transform hover:-translate-y-1">
+                            <div
+                                class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:scale-110 transition">
+                                <i class="fas fa-save"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-orange-100 uppercase font-bold">Αποθήκευση στο κινητό</div>
+                                <div class="text-white font-bold">Λήψη vCard</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="border-t border-slate-800 mt-16 pt-8 text-center text-sm text-slate-600 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>&copy; <span id="year"></span> NAEL Inspirations / printed3d.gr</p>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    <span>Online status powered by GitHub</span>
+                </div>
+            </div>
+        </div>
     </footer>
 
-    <!-- Κρυφός μετρητής σελίδας – hitscounter.dev -->
-    <div class="page-views">
+    <!-- Hidden Hits Counter -->
+    <div class="fixed bottom-2 right-2 opacity-0 hover:opacity-50 transition z-50">
         <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fnasosps.github.io%2Fpage%2F&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC"
-             alt="page views badge">
+            alt="page views badge">
     </div>
 
-</div>
+    <!-- Scripts -->
+    <script>
+        // Init Animations
+        AOS.init({
+            once: true,
+            offset: 100,
+            duration: 800,
+        });
 
-<script>
-    // Αυτόματο έτος στο footer
-    document.getElementById("year").textContent = new Date().getFullYear();
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    // --------- AUTO GALLERY ΑΠΟ ΤΟ ROOT ΤΟΥ REPO ----------
-    const GITHUB_USER = "nasosps";
-    const GITHUB_REPO = "page";
-    const IMAGES_PATH = ""; // root του repo
-
-    const galleryGrid = document.getElementById("gallery-grid");
-
-    async function loadGalleryFromGithub() {
-        if (!galleryGrid) return;
-
-        const base = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents`;
-        const apiUrl = IMAGES_PATH ? `${base}/${IMAGES_PATH}` : base;
-
-        try {
-            const response = await fetch(apiUrl);
-            if (!response.ok) {
-                console.error("GitHub API error:", response.status, response.statusText);
-                galleryGrid.innerHTML = '<p class="muted">Δεν ήταν δυνατή η φόρτωση της gallery.</p>';
-                return;
-            }
-
-            const files = await response.json();
-            if (!Array.isArray(files) || files.length === 0) {
-                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες στο repository.</p>';
-                return;
-            }
-
-            const allowedExt = ["jpg", "jpeg", "png", "gif", "webp", "svg"];
-            let html = "";
-
-            files.forEach(file => {
-                if (file.type !== "file") return;
-                const name = file.name || "";
-                const ext = name.split(".").pop().toLowerCase();
-                if (!allowedExt.includes(ext)) return;
-
-                const fileUrl = file.download_url;
-                const safeName = name.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-
-                html += `
-                    <div style="margin-bottom: 12px;">
-                        <div class="muted" style="margin-bottom: 4px;">${safeName}</div>
-                        <img src="${fileUrl}"
-                             alt="${safeName}"
-                             style="max-width:100%; border-radius: 12px; border:1px solid #e0e0e0;">
-                    </div>
-                `;
+        if (mobileBtn && mobileMenu) {
+            mobileBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                // Optional: Icon toggle logic could go here
             });
 
-            if (html === "") {
-                galleryGrid.innerHTML = '<p class="muted">Δεν βρέθηκαν εικόνες (png/jpg/gif/webp/svg).</p>';
-            } else {
-                galleryGrid.innerHTML = html;
-            }
-
-        } catch (err) {
-            console.error("Gallery load error:", err);
-            galleryGrid.innerHTML = '<p class="muted">Παρουσιάστηκε σφάλμα κατά τη φόρτωση της gallery.</p>';
+            // Close menu when clicking a link
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
         }
-    }
 
-    loadGalleryFromGithub();
-</script>
+        // Sticky Navbar Glass Effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.replace('bg-white/85', 'bg-white/95');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // Auto Year
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // --------- AUTO GALLERY LOGIC ----------
+        const GITHUB_USER = "nasosps";
+        const GITHUB_REPO = "page";
+        const IMAGES_PATH = ""; // root
+        const galleryGrid = document.getElementById("gallery-grid");
+
+        async function loadGalleryFromGithub() {
+            if (!galleryGrid) return;
+            const base = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents`;
+            const apiUrl = IMAGES_PATH ? `${base}/${IMAGES_PATH}` : base;
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const files = await response.json();
+                if (!Array.isArray(files) || files.length === 0) {
+                    galleryGrid.innerHTML = '<p class="text-white">Δεν βρέθηκαν εικόνες.</p>';
+                    return;
+                }
+
+                const allowedExt = ["jpg", "jpeg", "png", "gif", "webp", "svg"];
+                let html = "";
+
+                files.forEach((file, index) => {
+                    if (file.type !== "file") return;
+                    const name = file.name || "";
+                    const ext = name.split(".").pop().toLowerCase();
+                    // Skip logo and specific utility images if needed, or just allow all
+                    if (!allowedExt.includes(ext) || name.includes("logo") || name.includes("APOSTOLH")) return;
+
+                    const fileUrl = file.download_url;
+
+                    // Masonry Item
+                    html += `
+                        <div class="break-inside-avoid mb-6 group relative rounded-2xl overflow-hidden shadow-xl bg-slate-800 border border-slate-700" data-aos="fade-up" data-aos-delay="${index % 4 * 100}">
+                            <img src="${fileUrl}" 
+                                 alt="${name}" 
+                                 class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-500 ease-in-out">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col justify-end p-6">
+                                <span class="text-orange-400 text-xs font-bold uppercase tracking-wider mb-1">Project</span>
+                                <h4 class="text-white font-bold truncate">${name.slice(0, -4)}</h4>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                galleryGrid.innerHTML = html;
+
+            } catch (err) {
+                console.error("Gallery Error:", err);
+                galleryGrid.innerHTML = '<div class="col-span-full text-center text-slate-500 py-12">Η φόρτωση της gallery απέτυχε. Δοκιμάστε αργότερα.</div>';
+            }
+        }
+
+        loadGalleryFromGithub();
+    </script>
 </body>
+
 </html>

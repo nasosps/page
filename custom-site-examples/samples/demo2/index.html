@@ -1,0 +1,685 @@
+﻿<!doctype html>
+<html lang="el">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom Site Demo - Ανώνυμο Παράδειγμα</title>
+    <meta name="description"
+        content="Κλείστε το ραντεβού σας στο Όνομα / Επωνυμία σας εδώ στο Η διεύθυνσή σας εδώ. Υπηρεσίες αισθητικής, laser, spa & nails.">
+
+    <!-- Google Fonts for a premium look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* Όνομα / Επωνυμία σας εδώ Brand Colors (Earthy / Premium Spa Vibe) */
+            --brand-primary: #bda085;
+            /* Changed to a lighter brown/sand hue per request */
+            /* Very light warm beige */
+            --brand-secondary: #f0e6dc;
+            /* Lightened beige to match the new brown */
+            --dark: #1a1a1a;
+            --white: #ffffff;
+
+            /* Gradients for background */
+            --bg1: #dfd8cf;
+            /* warm light beige */
+            --bg2: #f4efeb;
+            /* even lighter */
+
+            --text: #333333;
+            --text-muted: #666666;
+
+            --glass: rgba(255, 255, 255, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --btn-bg: rgba(255, 255, 255, 0.8);
+
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            --radius: 24px;
+
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            /* elegant, bright daytime spa background */
+            background:
+                radial-gradient(800px 500px at 10% 10%, rgba(163, 124, 100, 0.15), transparent 60%),
+                radial-gradient(800px 500px at 90% 90%, rgba(232, 220, 203, 0.8), transparent 60%),
+                linear-gradient(135deg, var(--bg2), var(--bg1));
+            background-attachment: fixed;
+        }
+
+        /* Subtle background texture/watermark could go here if needed */
+        .watermark {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            /* background: url("template-logo.svg") center / min(800px, 120vw) no-repeat; */
+            opacity: 0.02;
+            filter: grayscale(100%);
+            z-index: 0;
+        }
+
+        /* Wrapper */
+        .wrap {
+            min-height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Main Card */
+        .card {
+            width: min(500px, 100%);
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Top Accent Ribbon */
+        .ribbon {
+            height: 4px;
+            background: linear-gradient(90deg,
+                    var(--brand-primary) 0%,
+                    #c49d84 50%,
+                    var(--brand-primary) 100%);
+        }
+
+        .inner {
+            padding: 32px 24px 44px;
+        }
+
+        /* Header Profile */
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .logo-container {
+            width: 260px;
+            /* Even larger max logo size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 4px;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 12px 30px rgba(163, 124, 100, 0.25);
+            background: var(--white);
+            transform: scale(1.35);
+            /* Zoom in more to crop out excess white space from PDF */
+            clip-path: inset(10% 8% 10% 8% round 8px);
+            /* Physically crop the white padding off the edges */
+        }
+
+        /* Placeholder for logo if image is missing initially */
+        .logo-placeholder {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--brand-primary);
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+
+        h1 {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            line-height: 1.2;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            color: var(--brand-primary);
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .divider {
+            height: 1px;
+            width: 60%;
+            margin: 0 auto 28px;
+            background: linear-gradient(90deg, transparent, rgba(163, 124, 100, 0.3), transparent);
+        }
+
+        /* Links Container */
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* Button Base */
+        .btn {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 14px 20px;
+            border-radius: 16px;
+            text-decoration: none;
+            color: var(--dark);
+            background: var(--btn-bg);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            overflow: hidden;
+        }
+
+        /* Highlight Primary Action */
+        .btn.primary {
+            background: var(--brand-primary);
+            color: var(--white);
+            border-color: var(--brand-primary);
+            box-shadow: 0 8px 20px rgba(163, 124, 100, 0.3);
+        }
+
+        .btn.primary .label strong {
+            color: var(--white);
+        }
+
+        .btn.primary .label span {
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        .btn.primary .icon-container {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn.primary svg {
+            fill: var(--white);
+        }
+
+        .btn.primary .pill {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            border: none;
+        }
+
+        a.btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        a.btn.primary:hover {
+            box-shadow: 0 12px 24px rgba(189, 160, 133, 0.5);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        /* Pulse Animation for Booking Button */
+        @keyframes pulse-primary {
+            0% {
+                box-shadow: 0 0 0 0 rgba(189, 160, 133, 0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(189, 160, 133, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(189, 160, 133, 0);
+            }
+        }
+
+        /* Target specifically the booking button using an ID */
+        #booking-btn {
+            animation: pulse-primary 2.5s infinite;
+            border: 2px solid var(--white);
+        }
+
+        .left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            z-index: 1;
+            min-width: 0;
+        }
+
+        .icon-container {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        .icon-container img,
+        .icon-container svg {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+
+        .label {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .label strong {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--dark);
+            white-space: nowrap;
+        }
+
+        .label span {
+            font-size: 12.5px;
+            color: var(--text-muted);
+        }
+
+        .pill {
+            z-index: 1;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(163, 124, 100, 0.08);
+            font-weight: 500;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--brand-primary);
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        /* Views Counter */
+        .views {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+
+
+        @media (max-width: 480px) {
+            .wrap {
+                padding: 16px 12px;
+                align-items: flex-start;
+                /* Better scrolling on small screens */
+            }
+
+            .inner {
+                padding: 28px 20px 36px;
+            }
+
+            .btn {
+                padding: 12px 16px;
+            }
+        }
+    </style>
+<style id="anon-demo-style">
+  .anonymized-demo-badge {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 9999;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(15,23,42,.15);
+    background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(241,245,249,.92));
+    color: #0f172a;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    box-shadow: 0 12px 30px rgba(15,23,42,.18);
+    backdrop-filter: blur(8px);
+  }
+  @media (max-width: 768px) {
+    .anonymized-demo-badge {
+      top: 10px;
+      right: 10px;
+      left: 10px;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+  }
+</style>
+<style id="universal-back-style">
+  .universal-back-btn {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 10000;
+    border: 1px solid rgba(15,23,42,.16);
+    background: rgba(255,255,255,.94);
+    color: #0f172a;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(15,23,42,.18);
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+  }
+  .universal-back-btn:hover {
+    background: #fff;
+  }
+  @media (max-width: 640px) {
+    .universal-back-btn {
+      top: 10px;
+      left: 10px;
+      padding: 7px 11px;
+      font-size: 11px;
+    }
+  }
+</style>
+</head>
+
+<body>
+    <button id="universal-back-btn" class="universal-back-btn" type="button">← Πίσω</button>
+    <div class="anonymized-demo-badge">Ανώνυμο Demo: Το logo σας εδώ • Η αξιολόγηση εδώ • Η διεύθυνσή σας εδώ</div>
+    <div class="watermark"></div>
+
+    <main class="wrap">
+        <section class="card">
+            <div class="ribbon"></div>
+
+            <div class="inner">
+
+                <!-- Header -->
+                <header class="header">
+                    <div class="logo-container">
+                        <img src="template-logo.svg" alt="Όνομα / Επωνυμία σας εδώ">
+                    </div>
+                    <div>
+                        <h1>Όνομα / Επωνυμία σας εδώ</h1>
+                        <p class="subtitle">Ινστιτούτο Αισθητικής & Ευεξίας</p>
+                    </div>
+                </header>
+
+                <div class="divider"></div>
+
+                <!-- Links -->
+                <div class="buttons">
+
+                    <!-- Featured Reel (Always at top) -->
+                    <a class="btn"
+                        href="index.html" rel="noopener">
+                        <div class="left">
+                            <div class="icon-container">
+                                <!-- Instagram Reel SVG -->
+                                <svg viewBox="0 0 24 24" fill="#E1306C" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" />
+                                </svg>
+                            </div>
+                            <div class="label">
+                                <strong>Δείτε τον χώρο μας !!</strong>
+                                <span>Νέο Instagram Reel</span>
+                            </div>
+                        </div>
+                        <span class="pill" style="background: rgba(225, 48, 108, 0.1); color: #E1306C;">New</span>
+                    </a>
+
+                    <!-- Offers Page -->
+                    <a class="btn primary" href="index.html">
+                        <div class="left">
+                            <div class="icon-container">
+                                <!-- Offers/Tag Icon -->
+                                <svg viewBox="0 0 24 24" fill="var(--white)" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.41l9 9c.36.36.86.58 1.41.58.55 0 1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41 0-.55-.23-1.06-.59-1.41zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z" />
+                                </svg>
+                            </div>
+                            <div class="label">
+                                <strong>Δείτε τις προσφορές μας!</strong>
+                                <span>Νέο Πακέτα & Εκπτώσεις</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- 1. Booking (PRIMARY & HIGHLIGHTED) -->
+                    <a id="booking-btn" class="btn primary" href="index.html" rel="noopener">
+                        <div class="left">
+                            <div class="icon-container">
+                                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 002 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5v-5z" />
+                                </svg>
+                            </div>
+                            <div class="label">
+                                <strong>Κλείστε Ραντεβού</strong>
+                                <span>Online Booking System</span>
+                            </div>
+                        </div>
+                        <span class="pill">Book </span>
+                    </a>
+
+                    <!-- 2. Website -->
+                    <a class="btn" href="index.html" rel="noopener">
+                        <div class="left">
+                            <div class="icon-container">
+                                <svg viewBox="0 0 24 24" fill="var(--brand-primary)" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                                </svg>
+                            </div>
+                            <div class="label">
+                                <strong>Επίσημο Website</strong>
+                                <span>Υπηρεσίες & Πληροφορίες</span>
+                            </div>
+                        </div>
+                        <span class="pill">Web</span>
+                    </a>
+
+                    <!-- 3. Google Reviews -->
+                    <a class="btn"
+                        href="index.html" rel="noopener">
+                        <div class="left">
+                            <div class="icon-container">
+                                <!-- Star Icon -->
+                                <svg viewBox="0 0 24 24" fill="#fbbc05" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                                </svg>
+                            </div>
+                            <div class="label">
+                                <strong>Αξιολόγηση στο Google</strong>
+                                <span>Η γνώμη σας μετράει</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    
+                    
+
+                    <!-- 5. Phone -->
+                    <a class="btn" href="index.html">
+                        <div class="left">
+                            <div class="icon-container">
+                                <svg viewBox="0 0 24 24" fill="var(--brand-primary)" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.053 15.053 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1.01A11.36 11.36 0 01 8.59 3.91.97.97 0 007.61 3H4.21a1 1 0 00-.98 1.05c.13 6.18 4.73 11.24 10.5 11.85.55.05 1.03-.41 1.03-.98v-3.42c.01-.55-.44-1.12-1-1.12z" />
+                                </svg>
+                            </div>
+                            <div class="label">
+                                <strong>Καλέστε Μας</strong>
+                                <span>6900000000</span>
+                            </div>
+                        </div>
+                        <span class="pill">Κλήση</span>
+                    </a>
+
+                    <!-- 6. Maps -->
+                    <a class="btn"
+                        href="index.html" rel="noopener">
+                        <div class="left">
+                            <div class="icon-container">
+                                <svg viewBox="0 0 24 24" fill="#ea4335" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                </svg>
+                            </div>
+                            <div class="label">
+                                <strong>Πήγαινέ με εκεί</strong>
+                                <span>Η διεύθυνσή σας εδώ</span>
+                            </div>
+                        </div>
+                        <span class="pill">Χάρτης</span>
+                    </a>
+
+                    <!-- 7. Instagram -->
+                    <a class="btn" href="index.html" rel="noopener">
+                        <div class="left">
+                            <div class="icon-container">
+                                <!-- Instagram SVG -->
+                                <svg viewBox="0 0 24 24" fill="#E1306C" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z" />
+                                </svg>
+                            </div>
+                            <div class="label">
+                                <strong>Instagram</strong>
+                                <span>Όνομα / Επωνυμία σας εδώ</span>
+                            </div>
+                        </div>
+                        <span class="pill">Social</span>
+                    </a>
+
+                    <!-- 8. Facebook -->
+                    <a class="btn" href="index.html"
+                        rel="noopener">
+                        <div class="left">
+                            <div class="icon-container">
+                                <!-- Facebook SVG -->
+                                <svg viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z" />
+                                </svg>
+                            </div>
+                            <div class="label">
+                                <strong>Facebook</strong>
+                                <span>Όνομα / Επωνυμία σας εδώ</span>
+                            </div>
+                        </div>
+                        <span class="pill">Social</span>
+                    </a>
+
+                    <!-- 9. YouTube -->
+                    <a class="btn" href="index.html"
+                        rel="noopener">
+                        <div class="left">
+                            <div class="icon-container">
+                                <!-- YouTube SVG -->
+                                <svg viewBox="0 0 24 24" fill="#FF0000" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M21.58,7.19C21.35,6.33 20.67,5.65 19.81,5.42C18.25,5 12,5 12,5C12,5 5.75,5 4.19,5.42C3.33,5.65 2.65,6.33 2.42,7.19C2,8.75 2,12 2,12C2,12 2,15.25 2.42,16.81C2.65,17.67 3.33,18.35 4.19,18.58C5.75,19 12,19 12,19C12,19 18.25,19 19.81,18.58C20.67,18.35 21.35,17.67 21.58,16.81C22,15.25 22,12 22,12C22,12 22,8.75 21.58,7.19M10,15V9L15.2,12L10,15Z" />
+                                </svg>
+                            </div>
+                            <div class="label">
+                                <strong>YouTube</strong>
+                                <span>Δείτε τα βίντεό μας</span>
+                            </div>
+                        </div>
+                        <span class="pill">Video</span>
+                    </a>
+
+                </div>
+
+
+
+                <footer>
+                    © <span id="y"></span> Όνομα / Επωνυμία σας εδώ
+                </footer>
+
+                <div class="views">
+                    <img id="hitCounter" alt="">
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById("y").textContent = new Date().getFullYear();
+
+        /* Dynamic hit counter */
+        (function () {
+            var url = encodeURIComponent(window.location.href);
+            document.getElementById("hitCounter").src =
+                "https://hitscounter.dev/api/hit?url=" + url +
+                "&label=&icon=heart&color=%23a37c64&message=&style=flat&tz=UTC";
+        })();
+    </script>
+<script id="demo-lock-navigation">
+  document.addEventListener('click', function (event) {
+    const btn = event.target.closest('button');
+    if (!btn || btn.id === 'universal-back-btn') return;
+    event.preventDefault();
+    window.location.href = 'index.html';
+  });
+</script>
+<script id="universal-back-script">
+  (function () {
+    const btn = document.getElementById('universal-back-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      window.location.href = '../../index.html';
+    });
+  })();
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

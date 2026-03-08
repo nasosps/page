@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 40 400 310">
+  <defs>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22d3ee;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="black" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  
+  <!-- Icon Group -->
+  <g transform="translate(200, 140)">
+    <!-- Main Circle Background (Optional, if we want it filled like the image square, but usually logos are transparent. Keeping transparent for web versatility) -->
+    
+    <!-- Stopwatch Ring -->
+    <circle cx="0" cy="0" r="70" stroke="white" stroke-width="25" fill="none" />
+    
+    <!-- Stopwatch Button -->
+    <line x1="50" y1="-50" x2="65" y2="-65" stroke="white" stroke-width="12" stroke-linecap="round" />
+    <rect x="62" y="-72" width="20" height="12" transform="rotate(45 72 -66)" fill="white" />
+    
+    <!-- Number 1 -->
+    <!-- Drawing a thick 1 with a slight serif to match modern fonts -->
+    <path d="M-15 -30 L5 -40 L5 40 L-15 40 M5 40 L20 40 L20 -40 L-15 -40" fill="white" fill-opacity="0" stroke="none" /> <!-- Helper path -->
+    
+    <!-- The 1 in the image is simple sans-serif mostly -->
+    <text x="0" y="35" font-family="Arial, sans-serif" font-weight="900" font-size="100" fill="url(#glow)" text-anchor="middle" filter="url(#shadow)">1</text>
+  </g>
+  
+  <!-- Text Group -->
+  <g transform="translate(200, 260)">
+      <text x="0" y="0" font-family="Arial, sans-serif" font-weight="900" font-size="60" fill="white" text-anchor="middle" letter-spacing="2">ONE</text>
+      <text x="0" y="45" font-family="Arial, sans-serif" font-weight="300" font-size="35" fill="white" text-anchor="middle" letter-spacing="8">MINUTE</text>
+      <text x="0" y="75" font-family="Arial, sans-serif" font-size="14" fill="#22d3ee" text-anchor="middle" letter-spacing="4" font-style="italic">ΤΑΚΟΥΝΙ &amp; ΚΛΕΙΔΙ</text>
+  </g>
+</svg>

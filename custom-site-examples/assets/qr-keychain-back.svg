@@ -1,0 +1,14 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 700" role="img" aria-label="QR keychain back">
+  <rect width="500" height="700" fill="#e5e7eb"/>
+  <path d="M250 24c-111 0-202 88-202 197v171c0 150 95 258 202 285 107-27 202-135 202-285V221c0-109-91-197-202-197z" fill="#2d3742" stroke="#1f2937" stroke-width="6"/>
+  <text x="250" y="220" text-anchor="middle" fill="#94a3b8" font-size="128" font-family="Brush Script MT, Segoe Script, cursive" font-weight="600">Elia</text>
+  <g transform="translate(250 400)" fill="none" stroke="#94a3b8" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M-70 0h130"/>
+    <path d="M-58 0l10 52h96l12-52"/>
+    <circle cx="-24" cy="84" r="18" fill="#94a3b8"/>
+    <circle cx="66" cy="84" r="18" fill="#94a3b8"/>
+    <path d="M-86 -34h24l15 34"/>
+  </g>
+  <circle cx="250" cy="562" r="60" fill="#e5e7eb"/>
+  <circle cx="250" cy="562" r="66" fill="none" stroke="#0f172a" stroke-width="6" opacity="0.35"/>
+</svg>

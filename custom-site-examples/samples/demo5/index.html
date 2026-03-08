@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html lang="el">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Custom Site Demo - Ανώνυμο Παράδειγμα</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="icon" type="image/svg+xml" href="template-logo.svg">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #020617;
+            /* Very dark slate/navy */
+            color: #fff;
+            background-image: radial-gradient(circle at 50% 0%, #1e293b 0%, #020617 70%);
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+        }
+    </style>
+<style id="anon-demo-style">
+  .anonymized-demo-badge {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 9999;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(15,23,42,.15);
+    background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(241,245,249,.92));
+    color: #0f172a;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    box-shadow: 0 12px 30px rgba(15,23,42,.18);
+    backdrop-filter: blur(8px);
+  }
+  @media (max-width: 768px) {
+    .anonymized-demo-badge {
+      top: 10px;
+      right: 10px;
+      left: 10px;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+  }
+</style>
+<style id="universal-back-style">
+  .universal-back-btn {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 10000;
+    border: 1px solid rgba(15,23,42,.16);
+    background: rgba(255,255,255,.94);
+    color: #0f172a;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(15,23,42,.18);
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+  }
+  .universal-back-btn:hover {
+    background: #fff;
+  }
+  @media (max-width: 640px) {
+    .universal-back-btn {
+      top: 10px;
+      left: 10px;
+      padding: 7px 11px;
+      font-size: 11px;
+    }
+  }
+</style>
+</head>
+
+<body class="flex flex-col items-center pb-20">
+    <button id="universal-back-btn" class="universal-back-btn" type="button">← Πίσω</button>
+    <div class="anonymized-demo-badge">Ανώνυμο Demo: Το logo σας εδώ • Η αξιολόγηση εδώ • Η διεύθυνσή σας εδώ</div>
+
+    <!-- Hero Section -->
+    <!-- Hero Section -->
+    <div class="w-full max-w-lg px-6 pt-6 pb-4 text-center">
+        <!-- Logo - Enlarged -->
+        <img src="template-logo.svg" alt="Όνομα / Επωνυμία σας εδώ Logo"
+            class="h-80 mx-auto mb-2 drop-shadow-[0_0_35px_rgba(34,211,238,0.25)]">
+
+        <p class="text-cyan-400 text-sm tracking-[0.2em] uppercase mb-4 font-semibold">ΗΡΑΚΛΕΙΟ ΚΡΗΤΗΣ</p>
+
+        <p class="text-slate-300 mb-6 leading-relaxed font-light text-lg">
+            Εξειδίκευση, αξιοπιστία και ποιότητα σε υπηρεσίες <strong class="text-white">Κλειδαρά</strong>,
+            <strong class="text-white">Αντιγραφές Κλειδιών</strong> και <strong class="text-white">Επιδιορθώσεις
+                Υποδημάτων</strong>.
+        </p>
+
+        <!-- Main Actions -->
+
+
+
+        
+        
+
+        <!-- Scroll Indicator -->
+        <div class="animate-bounce text-cyan-400/50 mt-2">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="w-full max-w-lg px-4 space-y-4">
+
+        <!-- Mobile -->
+        <div class="glass-card p-5 rounded-2xl border-l-4 border-cyan-500">
+            <div class="flex items-center justify-between mb-3">
+                <h3 class="font-bold text-lg text-white">Όνομα / Επωνυμία σας εδώ</h3>
+                <i class="fas fa-mobile-alt text-2xl text-cyan-500"></i>
+            </div>
+            <a href="index.html"
+                class="block w-full bg-slate-800/50 hover:bg-slate-700 text-center py-3 rounded-xl font-mono text-xl font-bold text-cyan-400 transition tracking-wider border border-slate-700">
+                6900000000
+            </a>
+        </div>
+
+        <!-- Knossou Store -->
+        <div class="glass-card p-5 rounded-2xl relative overflow-hidden">
+            <div class="flex items-center gap-3 mb-2">
+                <i class="fas fa-store text-purple-400 text-xl"></i>
+                <h3 class="font-bold text-lg text-white">Η διεύθυνσή σας εδώ</h3>
+            </div>
+            <p class="text-gray-400 text-sm mb-5 ml-8">Η διεύθυνσή σας εδώ</p>
+
+            <div class="grid grid-cols-2 gap-3 mb-3">
+                <a href="index.html"
+                    class="bg-slate-800/80 hover:bg-slate-700 py-3 rounded-xl text-center text-white font-bold transition border border-slate-700">
+                    <i class="fas fa-phone mr-2 text-green-500"></i> Κλήση
+                </a>
+                <a href="index.html"
+                    class="bg-slate-800/80 hover:bg-slate-700 py-3 rounded-xl text-center text-white font-bold transition border border-slate-700">
+                    <i class="fas fa-location-arrow mr-2 text-cyan-500"></i> Πήγαινέ με
+                </a>
+            </div>
+
+            <a href="index.html"
+                class="block w-full bg-white/90 hover:bg-white text-slate-900 py-4 rounded-xl text-center font-bold transition flex items-center justify-center gap-4 shadow-[0_0_15px_rgba(255,255,255,0.15)] mt-4 group">
+                <img src="google_review.png" alt="Google"
+                    class="w-10 h-10 object-contain group-hover:scale-110 transition">
+                <div class="text-left leading-tight">
+                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider">Μεινατε ευχαριστημενοι;
+                    </div>
+                    <div class="text-lg font-black text-slate-900">Αξιολογήστε μας στο Google</div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Center Store -->
+        <div class="glass-card p-5 rounded-2xl relative overflow-hidden">
+            <div class="flex items-center gap-3 mb-2">
+                <i class="fas fa-building text-amber-400 text-xl"></i>
+                <h3 class="font-bold text-lg text-white">Κεντρικό Κατάστημα</h3>
+            </div>
+            <p class="text-gray-400 text-sm mb-5 ml-8">Η διεύθυνσή σας εδώ</p>
+
+            <div class="grid grid-cols-2 gap-3 mb-3">
+                <a href="index.html"
+                    class="bg-slate-800/80 hover:bg-slate-700 py-3 rounded-xl text-center text-white font-bold transition border border-slate-700">
+                    <i class="fas fa-phone mr-2 text-green-500"></i> Κλήση
+                </a>
+                <a href="index.html"
+                    class="bg-slate-800/80 hover:bg-slate-700 py-3 rounded-xl text-center text-white font-bold transition border border-slate-700">
+                    <i class="fas fa-location-arrow mr-2 text-cyan-500"></i> Πήγαινέ με
+                </a>
+            </div>
+
+            <a href="index.html"
+                class="block w-full bg-white/90 hover:bg-white text-slate-900 py-4 rounded-xl text-center font-bold transition flex items-center justify-center gap-4 shadow-[0_0_15px_rgba(255,255,255,0.15)] mt-4 group">
+                <img src="google_review.png" alt="Google"
+                    class="w-10 h-10 object-contain group-hover:scale-110 transition">
+                <div class="text-left leading-tight">
+                    <div class="text-xs text-slate-500 font-bold uppercase tracking-wider">Μεινατε ευχαριστημενοι;
+                    </div>
+                    <div class="text-lg font-black text-slate-900">Αξιολογήστε μας στο Google</div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Opening Hours -->
+    <div class="glass-card p-5 rounded-2xl relative overflow-hidden mt-10">
+        <div class="flex items-center gap-3 mb-4">
+            <i class="far fa-clock text-cyan-400 text-xl"></i>
+            <h3 class="font-bold text-lg text-white">Ωράριο Λειτουργίας Καταστημάτων</h3>
+        </div>
+
+        <div class="space-y-2 text-sm">
+            <!-- Mon, Wed, Sat -->
+            <div class="flex justify-between items-center border-b border-white/5 pb-2">
+                <span class="text-slate-300">Δευτέρα - Τετάρτη - Σάββατο</span>
+                <span class="font-mono text-cyan-50 font-bold">09:00 – 14:30</span>
+            </div>
+
+            <!-- Tue, Thu, Fri -->
+            <div class="flex justify-between items-start border-b border-white/5 pb-2">
+                <span class="text-slate-300 mt-1">Τρίτη - Πέμπτη - Παρασκευή</span>
+                <div class="text-right font-mono text-cyan-50 font-bold">
+                    <div>09:00 – 14:00</div>
+                    <div>17:30 – 21:00</div>
+                </div>
+            </div>
+
+            <!-- Sunday -->
+            <div class="flex justify-between items-center pt-1">
+                <span class="text-slate-400">Κυριακή</span>
+                <span class="text-red-400 font-bold uppercase text-xs tracking-wider">Κλειστα</span>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="w-full max-w-lg px-4 mt-10">
+        <div class="grid grid-cols-4 gap-2">
+            <div class="flex flex-col items-center text-center p-2">
+                <div
+                    class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-yellow-500 mb-2 border border-slate-700">
+                    <i class="fas fa-key"></i>
+                </div>
+                <span class="text-[10px] uppercase font-bold text-gray-400">Κλειδαρας</span>
+            </div>
+            <div class="flex flex-col items-center text-center p-2">
+                <div
+                    class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-orange-500 mb-2 border border-slate-700">
+                    <i class="fas fa-shoe-prints"></i>
+                </div>
+                <span class="text-[10px] uppercase font-bold text-gray-400">Υποδηματα</span>
+            </div>
+            <div class="flex flex-col items-center text-center p-2">
+                <div
+                    class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-blue-500 mb-2 border border-slate-700">
+                    <i class="fas fa-car"></i>
+                </div>
+                <span class="text-[10px] uppercase font-bold text-gray-400">Κλειδια ΙΧ</span>
+            </div>
+            <div class="flex flex-col items-center text-center p-2">
+                <div
+                    class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-amber-700 mb-2 border border-slate-700">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <span class="text-[10px] uppercase font-bold text-gray-400">Δερματινα</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social / Web Links -->
+    <div class="w-full max-w-lg px-4 mt-8">
+        <div class="grid grid-cols-2 gap-3">
+            <a href="index.html"
+                class="glass-card hover:bg-white/5 text-white py-4 rounded-xl transition flex items-center justify-center gap-3 group">
+                <i class="fas fa-globe text-cyan-400 text-xl group-hover:scale-110 transition"></i>
+                <span class="font-bold">Website</span>
+            </a>
+            <a href="index.html"
+                class="glass-card hover:bg-white/5 text-white py-4 rounded-xl transition flex items-center justify-center gap-3 group">
+                <i class="fab fa-facebook text-blue-500 text-xl group-hover:scale-110 transition"></i>
+                <span class="font-bold">Facebook</span>
+            </a>
+        </div>
+    </div>
+
+    <footer class="mt-12 text-center text-slate-600 text-xs pb-6">
+        <p>&copy; 2026 Όνομα / Επωνυμία σας εδώ</p>
+    </footer>
+
+<script id="demo-lock-navigation">
+  document.addEventListener('click', function (event) {
+    const btn = event.target.closest('button');
+    if (!btn || btn.id === 'universal-back-btn') return;
+    event.preventDefault();
+    window.location.href = 'index.html';
+  });
+</script>
+<script id="universal-back-script">
+  (function () {
+    const btn = document.getElementById('universal-back-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      window.location.href = '../../index.html';
+    });
+  })();
+</script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

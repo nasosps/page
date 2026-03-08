@@ -1,0 +1,20 @@
+
+
+https://search.google.com/local/writereview?placeid=ChIJqWNfyHNZmhQRR1n2oq5ahjk
+
+
+
+
+Hi Rachael,
+Here's the steps on how to create a Google QR Code for customer reviews. 
+Step 1: Go to the Google Place Finder Tool and look up your business in the search box. You can do that here.
+Step 2: Copy your businesses “Place ID” from the maps tooltip.
+Step 3: Modify the following Reviews URL and past in your “Place ID”: https://search.google.com/local/writereview?placeid=PUT ID HERE
+Step 4: Select a QR code generator you like. A free QR code generator site you can use is https://www.qrstuff.com/
+Step 5: Copy and paste your new Reviews URL into your QR code website and download your QR code.
+Step 6: Print and use your QR code to start getting reviews!
+
+Hope this helps!
+
+Thank you!
+Alejandro

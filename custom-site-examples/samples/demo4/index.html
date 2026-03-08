@@ -1,0 +1,458 @@
+﻿<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom Site Demo - Ανώνυμο Παράδειγμα</title>
+
+<style>
+:root{
+  --green:#0f8a3a;
+  --white:#ffffff;
+  --red:#d81f2a;
+
+  --bg1:#0b0c12;
+  --bg2:#121420;
+
+  --text:#f7f7fb;
+  --muted:rgba(247,247,251,.7);
+
+  --glass:rgba(255,255,255,.10);
+  --border:rgba(255,255,255,.22);
+
+  --shadow:0 22px 60px rgba(0,0,0,.55);
+  --radius:24px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(700px 420px at 16% 18%, rgba(15,138,58,.22), transparent 60%),
+    radial-gradient(700px 420px at 84% 18%, rgba(216,31,42,.22), transparent 60%),
+    linear-gradient(135deg,var(--bg1),var(--bg2));
+}
+
+/* Watermark logo */
+.watermark{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:url("template-logo.svg") center / min(860px,92vw) no-repeat;
+  opacity:.055;
+  filter:grayscale(100%);
+}
+
+/* Wrapper */
+.wrap{
+  min-height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px 12px;
+  position:relative;
+  z-index:1;
+}
+
+/* Card */
+.card{
+  width:min(520px,100%);
+  background:linear-gradient(180deg,var(--glass),rgba(255,255,255,.05));
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(14px);
+  overflow:hidden;
+  position:relative; /* για counter */
+}
+
+/* Όνομα / Επωνυμία σας εδώ ribbon */
+.ribbon{
+  height:9px;
+  background:linear-gradient(
+    90deg,
+    var(--green) 0 33.33%,
+    var(--white) 33.33% 66.66%,
+    var(--red) 66.66% 100%
+  );
+}
+
+.inner{
+  padding:18px 14px 44px; /* extra space για να μην πέφτει ο counter πάνω σε κουμπί */
+}
+
+/* Header */
+.header{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.logo{
+  width:54px;
+  height:54px;
+  border-radius:16px;
+  background:rgba(0,0,0,.30);
+  border:1px solid rgba(255,255,255,.25);
+  display:grid;
+  place-items:center;
+}
+.logo img{
+  width:85%;
+  height:85%;
+  object-fit:contain;
+  filter:grayscale(100%);
+}
+
+h1{
+  margin:0;
+  font-size:clamp(22px,6vw,30px);
+  line-height:1.05;
+}
+
+.subtitle{
+  margin-top:6px;
+  color:var(--muted);
+  font-size:13.5px;
+}
+
+.divider{
+  height:1px;
+  margin:14px 0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);
+}
+
+/* Buttons */
+.buttons{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.btn{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px;
+  min-height:64px;
+  border-radius:18px;
+  text-decoration:none;
+  color:var(--text);
+  background:rgba(0,0,0,.34);
+  border:1px solid rgba(255,255,255,.22);
+  transition:.12s ease;
+  overflow:hidden;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  background:rgba(0,0,0,.42);
+}
+
+.accent{
+  position:absolute;
+  left:0;top:0;bottom:0;
+  width:8px;
+  background:linear-gradient(180deg,var(--green),var(--white),var(--red));
+}
+
+.left{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  z-index:1;
+  min-width:0;
+}
+
+.icon-img{
+  width:32px;
+  height:32px;
+  object-fit:contain;
+}
+
+.label strong{
+  display:block;
+  font-size:15px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.label span{
+  font-size:12.5px;
+  color:var(--muted);
+}
+
+.pill{
+  z-index:1;
+  padding:7px 10px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.26);
+  background:rgba(255,255,255,.10);
+  font-size:12.5px;
+  white-space:nowrap;
+}
+
+/* Counter (fixed overlap issue) */
+.views{
+  position:absolute;
+  bottom:8px;
+  right:10px;
+  pointer-events:none; /* να μην μπλοκάρει tap στο κουμπί */
+}
+.views img{
+  height:16px;
+  opacity:.75;
+  display:block;
+}
+
+/* Footer */
+footer{
+  margin-top:14px;
+  text-align:center;
+  font-size:12px;
+  color:rgba(247,247,251,.6);
+}
+
+/* Mobile tweak */
+@media (max-width: 480px){
+  .views{
+    bottom:4px;
+    right:6px;
+  }
+  .views img{
+    height:18px;
+  }
+}
+/* ΜΟΝΟ το Google Review στο κέντρο */
+.btn-google{
+  justify-content: center;
+}
+
+.btn-google .left{
+  justify-content: center;
+}
+
+.btn-google .label{
+  text-align: center;
+}
+
+/* Προαιρετικό: κρύβουμε το pill μόνο στο Google */
+.btn-google .pill{
+  display: none;
+}
+
+</style>
+<style id="anon-demo-style">
+  .anonymized-demo-badge {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 9999;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(15,23,42,.15);
+    background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(241,245,249,.92));
+    color: #0f172a;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    box-shadow: 0 12px 30px rgba(15,23,42,.18);
+    backdrop-filter: blur(8px);
+  }
+  @media (max-width: 768px) {
+    .anonymized-demo-badge {
+      top: 10px;
+      right: 10px;
+      left: 10px;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+  }
+</style>
+<style id="universal-back-style">
+  .universal-back-btn {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 10000;
+    border: 1px solid rgba(15,23,42,.16);
+    background: rgba(255,255,255,.94);
+    color: #0f172a;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(15,23,42,.18);
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+  }
+  .universal-back-btn:hover {
+    background: #fff;
+  }
+  @media (max-width: 640px) {
+    .universal-back-btn {
+      top: 10px;
+      left: 10px;
+      padding: 7px 11px;
+      font-size: 11px;
+    }
+  }
+</style>
+</head>
+
+<body>
+    <button id="universal-back-btn" class="universal-back-btn" type="button">← Πίσω</button>
+    <div class="anonymized-demo-badge">Ανώνυμο Demo: Το logo σας εδώ • Η αξιολόγηση εδώ • Η διεύθυνσή σας εδώ</div>
+<div class="watermark"></div>
+
+<main class="wrap">
+<section class="card">
+  <div class="ribbon"></div>
+
+  <div class="inner">
+    <div class="header">
+      <div class="logo">
+        <img src="template-logo.svg" alt="Όνομα / Επωνυμία σας εδώ">
+      </div>
+      <div>
+        <h1>Όνομα / Επωνυμία σας εδώ</h1>
+        <p class="subtitle">Παραγγελία & Social links</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="buttons">
+
+      <a class="btn" href="index.html" rel="noopener">
+        <span class="accent"></span>
+        <div class="left">
+          <img src="efood.png" class="icon-img" alt="efood">
+          <div class="label">
+            <strong>efood</strong>
+            <span>Παραγγελία</span>
+          </div>
+        </div>
+        <span class="pill">Άνοιγμα</span>
+      </a>
+
+      <a class="btn" href="index.html" rel="noopener">
+        <span class="accent"></span>
+        <div class="left">
+          <img src="wolt.png" class="icon-img" alt="Wolt">
+          <div class="label">
+            <strong>Wolt</strong>
+            <span>Παραγγελία</span>
+          </div>
+        </div>
+        <span class="pill">Άνοιγμα</span>
+      </a>
+
+      <a class="btn" href="index.html" rel="noopener">
+        <span class="accent"></span>
+        <div class="left">
+          <img src="facebook.png" class="icon-img" alt="Facebook">
+          <div class="label">
+            <strong>Facebook</strong>
+            <span>Επίσημη σελίδα</span>
+          </div>
+        </div>
+        <span class="pill">Social</span>
+      </a>
+
+      <a class="btn" href="index.html" rel="noopener">
+        <span class="accent"></span>
+        <div class="left">
+          <img src="instagram.png" class="icon-img" alt="Instagram">
+          <div class="label">
+            <strong>Instagram</strong>
+            <span>Όνομα / Επωνυμία σας εδώ</span>
+          </div>
+        </div>
+        <span class="pill">Social</span>
+      </a>
+
+      <a class="btn" href="index.html" rel="noopener">
+        <span class="accent"></span>
+        <div class="left">
+          <img src="maps.png" class="icon-img" alt="Google Maps">
+          <div class="label">
+            <strong>Google Maps</strong>
+            <span>Οδηγίες πλοήγησης</span>
+          </div>
+        </div>
+        <span class="pill">Πήγαινέ με</span>
+      </a>
+
+      <a class="btn btn-google" href="index.html" rel="noopener">
+        <span class="accent"></span>
+        <div class="left">
+          <img src="google_review.png" class="icon-img" alt="Google Review">
+          <div class="label">
+            <strong>Αξιολογήστε μας στο Google</strong>
+            <span>Η γνώμη σας μετράει</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <footer>
+      © <span id="y"></span> Όνομα / Επωνυμία σας εδώ
+    </footer>
+
+    <div class="views">
+      <img id="hitCounter" alt="">
+    </div>
+
+  </div>
+</section>
+</main>
+
+<script>
+document.getElementById("y").textContent = new Date().getFullYear();
+
+/* Dynamic hit counter */
+(function () {
+  var url = encodeURIComponent(window.location.href);
+  document.getElementById("hitCounter").src =
+    "https://hitscounter.dev/api/hit?url=" + url +
+    "&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC";
+})();
+</script>
+<script id="demo-lock-navigation">
+  document.addEventListener('click', function (event) {
+    const btn = event.target.closest('button');
+    if (!btn || btn.id === 'universal-back-btn') return;
+    event.preventDefault();
+    window.location.href = 'index.html';
+  });
+</script>
+<script id="universal-back-script">
+  (function () {
+    const btn = document.getElementById('universal-back-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      window.location.href = '../../index.html';
+    });
+  })();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

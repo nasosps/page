@@ -1,0 +1,413 @@
+﻿<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom Site Demo - Ανώνυμο Παράδειγμα</title>
+
+<style>
+:root{
+  /* Χρωματική παλέτα Bistro - Gold/Dark */
+  --primary: #d4a017; /* Gold */
+  --accent: #f7f7fb;
+  
+  --bg1: #0b0c12;
+  --bg2: #161824;
+
+  --text: #f7f7fb;
+  --muted: rgba(247,247,251,.7);
+
+  --glass: rgba(255,255,255,.08);
+  --border: rgba(255,255,255,.15);
+
+  --shadow: 0 22px 60px rgba(0,0,0,.55);
+  --radius: 24px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: 
+    radial-gradient(700px 420px at 50% 18%, rgba(212, 160, 23, 0.15), transparent 80%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+  background-attachment: fixed;
+}
+
+main{
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.card{
+  width: 100%;
+  max-width: 420px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 3rem 2rem;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logo-area{
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.logo-img{
+  width: 140px;
+  height: 140px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+h1{
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+p.desc{
+  margin: 0 0 0.5rem 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+p.address{
+  margin: 0 0 0.5rem 0;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Στυλ για το τηλέφωνο και την ετικέτα */
+p.phone {
+  margin: 0 0 2rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; 
+  gap: 8px;
+}
+
+.phone-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+p.phone a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s;
+  border-bottom: 1px dotted var(--muted); 
+}
+
+p.phone a:hover {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.links{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.btn{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--text);
+  text-decoration: none;
+  transition: all .3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background: rgba(255,255,255,.08);
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.4);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.btn .left{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.icon-img{
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* SVG Εικονίδιο */
+.icon-svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--primary);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.label{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.label strong{
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.label span{
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.pill{
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(255,255,255,.1);
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: .3s;
+}
+
+.btn:hover .pill{
+  background: var(--text);
+  color: var(--bg1);
+}
+
+/* Χρώματα Hover */
+.btn-save:hover { border-color: var(--primary); }
+.btn-insta:hover { border-color: #d62976; }
+.btn-efood:hover { border-color: #e63029; }
+.btn-google:hover { border-color: #34A853; } /* Πράσινο Google Maps */
+
+footer{
+  margin-top: 3rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.7;
+}
+
+/* Στυλ για τον μετρητή */
+.views-container {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--muted);
+  opacity: 0.8;
+}
+.views-container img {
+  height: 18px;
+  display: block;
+}
+</style>
+<style id="anon-demo-style">
+  .anonymized-demo-badge {
+    position: fixed;
+    top: 14px;
+    right: 14px;
+    z-index: 9999;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(15,23,42,.15);
+    background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(241,245,249,.92));
+    color: #0f172a;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    box-shadow: 0 12px 30px rgba(15,23,42,.18);
+    backdrop-filter: blur(8px);
+  }
+  @media (max-width: 768px) {
+    .anonymized-demo-badge {
+      top: 10px;
+      right: 10px;
+      left: 10px;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+  }
+</style>
+<style id="universal-back-style">
+  .universal-back-btn {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 10000;
+    border: 1px solid rgba(15,23,42,.16);
+    background: rgba(255,255,255,.94);
+    color: #0f172a;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(15,23,42,.18);
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+  }
+  .universal-back-btn:hover {
+    background: #fff;
+  }
+  @media (max-width: 640px) {
+    .universal-back-btn {
+      top: 10px;
+      left: 10px;
+      padding: 7px 11px;
+      font-size: 11px;
+    }
+  }
+</style>
+</head>
+<body>
+    <button id="universal-back-btn" class="universal-back-btn" type="button">← Πίσω</button>
+    <div class="anonymized-demo-badge">Ανώνυμο Demo: Το logo σας εδώ • Η αξιολόγηση εδώ • Η διεύθυνσή σας εδώ</div>
+
+<main>
+<section class="card">
+  
+  <div class="logo-area">
+    <img src="template-logo.svg" alt="Όνομα / Επωνυμία σας εδώ Logo" class="logo-img">
+  </div>
+
+  <h1>Όνομα / Επωνυμία σας εδώ</h1>
+  <p class="desc">Cafe • Bistro • Brunch • Drinks</p>
+  
+  <p class="address">Η διεύθυνσή σας εδώ</p>
+  <p class="phone">
+      <span class="phone-label">Καλέστε μας ( πατήστε εδώ )</span>
+      <a href="index.html">6900000000</a>
+  </p>
+
+  <div class="links">
+
+    
+
+    <a class="btn btn-insta" href="index.html" rel="noopener">
+      <div class="left">
+        <img src="instagram.png" class="icon-img" alt="Instagram">
+        <div class="label">
+          <strong>Instagram</strong>
+          <span>Ακολουθήστε μας</span>
+        </div>
+      </div>
+      <span class="pill">Follow</span>
+    </a>
+
+    <a class="btn btn-efood" href="index.html" rel="noopener">
+      <div class="left">
+        <img src="efood.png" class="icon-img" alt="efood">
+        <div class="label">
+          <strong>Παραγγελία Online</strong>
+          <span>Μέσω efood</span>
+        </div>
+      </div>
+      <span class="pill">Order</span>
+    </a>
+
+    <a class="btn btn-google" href="index.html" rel="noopener">
+      <div class="left">
+        <img src="maps.png" class="icon-img" alt="Maps">
+        <div class="label">
+          <strong>Οδηγίες Χάρτη</strong>
+          <span>Η διεύθυνσή σας εδώ</span>
+        </div>
+      </div>
+      <span class="pill">Πήγαινέ με</span>
+    </a>
+
+  </div>
+
+  <footer>
+    © <span id="y"></span> Όνομα / Επωνυμία σας εδώ
+  </footer>
+
+  <div class="views-container">
+    <span>Views:</span>
+    <img id="hitCounter" alt="counter">
+  </div>
+
+</section>
+</main>
+
+<script>
+  // Auto Update Year
+  document.getElementById("y").textContent = new Date().getFullYear();
+
+  // Dynamic Counter Script
+  (function () {
+    var url = encodeURIComponent(window.location.href);
+    document.getElementById("hitCounter").src =
+      "https://hitscounter.dev/api/hit?url=" + url +
+      "&label=&icon=chart&color=%23d4a017&style=flat";
+  })();
+</script>
+
+<script id="demo-lock-navigation">
+  document.addEventListener('click', function (event) {
+    const btn = event.target.closest('button');
+    if (!btn || btn.id === 'universal-back-btn') return;
+    event.preventDefault();
+    window.location.href = 'index.html';
+  });
+</script>
+<script id="universal-back-script">
+  (function () {
+    const btn = document.getElementById('universal-back-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      window.location.href = '../../index.html';
+    });
+  })();
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="el" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
-    <title>printed3d.gr & NAEL Inspirations – 3D Εκτυπώσεις & Χειροποίητες Δημιουργίες</title>
+    <title>Όνομα / Επωνυμία σας εδώ & Όνομα / Επωνυμία σας εδώ – 3D Εκτυπώσεις & Χειροποίητες Δημιουργίες</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
-        content="printed3d.gr & NAEL Inspirations – 3D εκτυπώσεις, χειροποίητες δημιουργίες, μπομπονιέρες, δώρα και custom projects.">
+        content="Όνομα / Επωνυμία σας εδώ & Όνομα / Επωνυμία σας εδώ – 3D εκτυπώσεις, χειροποίητες δημιουργίες, μπομπονιέρες, δώρα και custom projects.">
 
     <!-- Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -58,6 +58,41 @@
             background: linear-gradient(135deg, #ea580c 0%, #db2777 100%);
         }
 
+        .qr-cta-card {
+            background: radial-gradient(circle at 20% 0%, rgba(251, 146, 60, 0.2), transparent 42%),
+                radial-gradient(circle at 100% 100%, rgba(56, 189, 248, 0.2), transparent 48%),
+                linear-gradient(160deg, #0f172a 0%, #111827 60%, #1e293b 100%);
+        }
+
+        .cta-arrow {
+            animation: ctaArrowDrop 1.6s ease-in-out infinite;
+        }
+
+        .cta-arrow:nth-child(2) {
+            animation-delay: .18s;
+        }
+
+        .cta-arrow:nth-child(3) {
+            animation-delay: .36s;
+        }
+
+        @keyframes ctaArrowDrop {
+            0% {
+                opacity: .2;
+                transform: translateY(-2px);
+            }
+
+            50% {
+                opacity: 1;
+                transform: translateY(3px);
+            }
+
+            100% {
+                opacity: .2;
+                transform: translateY(-2px);
+            }
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
@@ -76,9 +111,39 @@
             background: #94a3b8;
         }
     </style>
+<style id="universal-back-style">
+  .universal-back-btn {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    z-index: 10000;
+    border: 1px solid rgba(15,23,42,.16);
+    background: rgba(255,255,255,.94);
+    color: #0f172a;
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(15,23,42,.18);
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+  }
+  .universal-back-btn:hover {
+    background: #fff;
+  }
+  @media (max-width: 640px) {
+    .universal-back-btn {
+      top: 10px;
+      left: 10px;
+      padding: 7px 11px;
+      font-size: 11px;
+    }
+  }
+</style>
 </head>
 
 <body class="text-slate-800 antialiased overflow-x-hidden selection:bg-orange-200 selection:text-orange-900">
+    <button id="universal-back-btn" class="universal-back-btn" type="button">← Πίσω</button>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
@@ -88,18 +153,20 @@
                 <div class="flex items-center gap-3">
                     <img src="logo-nael.png" alt="Logo" class="h-10 w-10 object-contain rounded-full shadow-md">
                     <div class="leading-tight">
-                        <div class="font-bold text-lg tracking-tight">NAEL <span
-                                class="font-normal text-slate-500">Inspirations</span></div>
-                        <div class="text-[10px] uppercase tracking-widest text-orange-600 font-bold">printed3d.gr</div>
+                        <div class="font-bold text-lg tracking-tight">Όνομα / Επωνυμία σας εδώ</div>
+                        <div class="text-[10px] uppercase tracking-widest text-orange-600 font-bold">Όνομα / Επωνυμία σας εδώ</div>
                     </div>
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
+                <div class="hidden md:flex space-x-6 items-center">
                     <a href="#about" class="text-sm font-medium hover:text-orange-600 transition">Ποιος είμαι</a>
                     <a href="#printed3d" class="text-sm font-medium hover:text-orange-600 transition">3D Printing</a>
                     <a href="#nael" class="text-sm font-medium hover:text-orange-600 transition">Handmade</a>
                     <a href="#gallery" class="text-sm font-medium hover:text-orange-600 transition">Gallery</a>
+                    <a href="custom-site-examples/index.html"
+                        class="px-4 py-2 rounded-full bg-white text-slate-900 text-xs font-extrabold border border-slate-200 hover:border-orange-300 hover:text-orange-600 transition shadow-sm whitespace-nowrap">Δείγματα
+                        Custom Sites</a>
                     <a href="#contact"
                         class="px-5 py-2.5 rounded-full bg-slate-900 text-white text-sm font-bold hover:bg-orange-600 transition shadow-lg hover:shadow-orange-500/30 transform hover:-translate-y-0.5">Επικοινωνία</a>
                 </div>
@@ -126,6 +193,9 @@
                         class="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition">Handmade</a>
                     <a href="#gallery"
                         class="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition">Gallery</a>
+                    <a href="custom-site-examples/index.html"
+                        class="block px-4 py-3 rounded-xl text-base font-bold text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition">Δείγματα
+                        Custom Sites</a>
                     <a href="#contact"
                         class="block px-4 py-3 mt-4 text-center rounded-xl text-base font-bold bg-slate-900 text-white hover:bg-orange-600 shadow-lg transition">Επικοινωνία</a>
                 </div>
@@ -168,11 +238,7 @@
                     </p>
 
                     <div class="flex flex-wrap gap-4">
-                        <a href="nael_inspirations.vcf" download
-                            class="group flex items-center gap-3 px-6 py-4 rounded-full bg-slate-900 text-white font-bold shadow-xl hover:bg-slate-800 transition transform hover:-translate-y-1">
-                            <i class="fas fa-address-card text-orange-400 group-hover:scale-110 transition"></i>
-                            <span>Αποθήκευση Επαφής (vCard)</span>
-                        </a>
+                        
                         <a href="#gallery"
                             class="flex items-center gap-3 px-6 py-4 rounded-full bg-white text-slate-900 font-bold border border-slate-200 shadow-lg hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 transition transform hover:-translate-y-1">
                             <span>Δες δουλειές μου</span>
@@ -193,52 +259,48 @@
                     </div>
                 </div>
 
-                <!-- Hero Image / Visual -->
-                <div class="relative lg:h-[600px] flex items-center justify-center p-8" data-aos="fade-left"
+                <!-- Hero QR + CTA Showcase -->
+                <div class="relative lg:h-[620px] flex items-center justify-center p-1 sm:p-3 lg:p-0" data-aos="fade-left"
                     data-aos-duration="1200">
-                    <div class="relative w-full max-w-md aspect-square">
-                        <!-- Blob Background -->
-                        <div
-                            class="absolute inset-0 bg-gradient-to-tr from-orange-200 to-rose-200 rounded-full blur-2xl transform scale-110 animate-pulse">
-                        </div>
+                    <div class="relative w-full max-w-2xl">
+                        <div class="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-orange-300/30 blur-3xl"></div>
+                        <div class="absolute -bottom-8 -left-8 w-36 h-36 rounded-full bg-sky-300/30 blur-3xl"></div>
 
-                        <!-- Main Image Container -->
-                        <div
-                            class="relative h-full w-full bg-white/80 backdrop-blur-xl rounded-3xl border border-white/50 shadow-2xl overflow-hidden flex flex-col items-center justify-center p-8 text-center group">
-                            <img src="logo-nael.png" alt="Nael Logo"
-                                class="w-48 h-48 object-contain mb-6 drop-shadow-xl transform group-hover:scale-110 transition duration-500">
-                            <h3 class="text-2xl font-bold text-slate-800 mb-2">Νάσος Ψαραδάκης</h3>
-                            <p class="text-slate-500 text-sm mb-6">Founder & Maker</p>
-
-                            <div class="flex gap-4">
-                                <a href="mailto:naelinspirations@outlook.com"
-                                    class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-orange-500 hover:text-white transition shadow-sm">
-                                    <i class="fas fa-envelope"></i>
-                                </a>
-                                <a href="tel:+306908636196"
-                                    class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-green-500 hover:text-white transition shadow-sm">
-                                    <i class="fas fa-phone"></i>
-                                </a>
-                                <a href="https://www.printed3d.gr" target="_blank"
-                                    class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 hover:bg-blue-500 hover:text-white transition shadow-sm">
-                                    <i class="fas fa-globe"></i>
-                                </a>
+                        <div class="relative qr-cta-card rounded-[32px] p-5 sm:p-6 lg:p-8 shadow-2xl border border-white/20">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 text-orange-200 text-[11px] sm:text-xs font-extrabold uppercase tracking-wider mb-4">
+                                <i class="fas fa-qrcode"></i>
+                                Custom QR Keychain
                             </div>
-                        </div>
 
-                        <!-- Floating Badge -->
-                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl border border-slate-100 animate-bounce"
-                            style="animation-duration: 3s;">
-                            <div class="flex items-center gap-3">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                                    <i class="fas fa-check"></i>
+                            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-white mb-3">
+                                Δείγματα από Custom Sites που μπορώ να φτιάξω για εσάς
+                            </h3>
+
+                            <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-5">
+                                Σκανάροντας το QR στο μπρελόκ, ανοίγει άμεσα το custom site της επιχείρησής σας.
+                            </p>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-5">
+                                <div class="rounded-2xl bg-white/10 border border-white/15 p-3">
+                                    <img src="qr_front.jpg" alt="QR μπρελόκ μπροστά" class="w-full h-44 sm:h-48 object-contain rounded-xl bg-slate-900/30">
+                                    <p class="text-center text-xs text-slate-300 mt-2 font-semibold">QR πλευρά</p>
                                 </div>
-                                <div>
-                                    <div class="text-xs text-slate-400 font-bold uppercase">Response Rate</div>
-                                    <div class="text-sm font-bold text-slate-800">Very Fast</div>
+                                <div class="rounded-2xl bg-white/10 border border-white/15 p-3">
+                                    <img src="qr_back.jpg" alt="QR μπρελόκ πίσω" class="w-full h-44 sm:h-48 object-contain rounded-xl bg-slate-900/30">
+                                    <p class="text-center text-xs text-slate-300 mt-2 font-semibold">Brand πλευρά</p>
                                 </div>
                             </div>
+
+                            <div class="flex items-center justify-center gap-1 text-orange-300 mb-2">
+                                <i class="fas fa-arrow-down cta-arrow"></i>
+                                <i class="fas fa-arrow-down cta-arrow"></i>
+                                <i class="fas fa-arrow-down cta-arrow"></i>
+                            </div>
+
+                            <a href="custom-site-examples/index.html"
+                                class="block w-full text-center px-4 sm:px-6 py-5 sm:py-6 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-pink-500 text-white text-base sm:text-xl font-extrabold shadow-2xl hover:shadow-orange-500/40 transition transform hover:-translate-y-0.5">
+                                Δείγματα από Custom Sites που μπορώ να φτιάξω για εσάς
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -252,15 +314,15 @@
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div data-aos="fade-up">
                     <h2 class="text-4xl font-extrabold text-slate-900 mb-6">Η ιστορία πίσω από το <span
-                            class="gradient-text">NAEL</span></h2>
+                            class="gradient-text">Όνομα / Επωνυμία σας εδώ</span></h2>
                     <div class="w-20 h-1.5 gradient-bg rounded-full mb-8"></div>
                     <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        Ονομάζομαι <strong class="text-slate-900">Αναστάσιος (Νάσος) Ψαραδάκης</strong>. Η αγάπη μου για
+                        Ονομάζομαι <strong class="text-slate-900">Όνομα / Επωνυμία σας εδώ</strong>. Η αγάπη μου για
                         την τεχνολογία και η ανάγκη μου για δημιουργία γέννησαν δύο brands που αλληλοσυμπληρώνονται.
                     </p>
                     <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-                        Μέσα από το <strong>printed3d.gr</strong> εστιάζω στην τεχνική αρτιότητα της 3D εκτύπωσης. Με το
-                        <strong>NAEL Inspirations</strong>, προσθέτω την ανθρώπινη, καλλιτεχνική πινελιά. Στόχος μου
+                        Μέσα από το <strong>Όνομα / Επωνυμία σας εδώ</strong> εστιάζω στην τεχνική αρτιότητα της 3D εκτύπωσης. Με το
+                        <strong>Όνομα / Επωνυμία σας εδώ</strong>, προσθέτω την ανθρώπινη, καλλιτεχνική πινελιά. Στόχος μου
                         είναι κάθε αντικείμενο να αφηγείται μια μικρή ιστορία.
                     </p>
 
@@ -337,7 +399,7 @@
                     <h3 class="text-2xl font-bold text-slate-900 mb-4 group-hover:text-purple-600 transition">Handmade &
                         Decor</h3>
                     <p class="text-slate-600 mb-6">
-                        Το <strong>NAEL Inspirations</strong> παντρεύει την τεχνολογία με το χειροποίητο. Κορδέλες,
+                        Το <strong>Όνομα / Επωνυμία σας εδώ</strong> παντρεύει την τεχνολογία με το χειροποίητο. Κορδέλες,
                         τούλια και υφάσματα αγκαλιάζουν τις 3D δημιουργίες.
                     </p>
                     <ul class="space-y-2 text-sm text-slate-500 mb-8">
@@ -527,7 +589,7 @@
                 <div class="col-span-1 lg:col-span-1">
                     <img src="logo-nael.png" alt="Logo White"
                         class="h-16 w-16 mb-6 opacity-90 rounded-2xl bg-white/10 p-2">
-                    <h3 class="text-white text-xl font-bold mb-4">NAEL Inspirations</h3>
+                    <h3 class="text-white text-xl font-bold mb-4">Όνομα / Επωνυμία σας εδώ</h3>
                     <p class="text-sm leading-relaxed mb-6">
                         3D Εκτυπώσεις & Χειροποίητες Δημιουργίες με αγάπη από το Ηράκλειο Κρήτης.
                     </p>
@@ -554,7 +616,7 @@
                 <div class="lg:col-span-2">
                     <h4 class="text-white font-bold mb-6">Επικοινωνία</h4>
                     <div class="grid sm:grid-cols-2 gap-6">
-                        <a href="tel:+306908636196"
+                        <a href="tel:6900000000"
                             class="flex items-center gap-4 bg-slate-800 p-4 rounded-xl hover:bg-slate-700 transition group">
                             <div
                                 class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-green-500 group-hover:scale-110 transition">
@@ -562,7 +624,7 @@
                             </div>
                             <div>
                                 <div class="text-xs text-slate-500 uppercase font-bold">Καλέστε με</div>
-                                <div class="text-white font-bold">690 863 6196</div>
+                                <div class="text-white font-bold">6900000000</div>
                             </div>
                         </a>
 
@@ -578,24 +640,14 @@
                             </div>
                         </a>
 
-                        <a href="nael_inspirations.vcf" download
-                            class="sm:col-span-2 flex items-center gap-4 bg-gradient-to-r from-orange-600 to-rose-600 p-4 rounded-xl hover:shadow-lg hover:shadow-orange-900/50 transition group transform hover:-translate-y-1">
-                            <div
-                                class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white group-hover:scale-110 transition">
-                                <i class="fas fa-save"></i>
-                            </div>
-                            <div>
-                                <div class="text-xs text-orange-100 uppercase font-bold">Αποθήκευση στο κινητό</div>
-                                <div class="text-white font-bold">Λήψη vCard</div>
-                            </div>
-                        </a>
+                        
                     </div>
                 </div>
             </div>
 
             <div
                 class="border-t border-slate-800 mt-16 pt-8 text-center text-sm text-slate-600 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p>&copy; <span id="year"></span> NAEL Inspirations / printed3d.gr</p>
+                <p>&copy; <span id="year"></span> Όνομα / Επωνυμία σας εδώ / Όνομα / Επωνυμία σας εδώ</p>
                 <div class="flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-green-500"></span>
                     <span>Online status powered by GitHub</span>
@@ -708,6 +760,19 @@
 
         loadGalleryFromGithub();
     </script>
+<script id="universal-back-script">
+  (function () {
+    const btn = document.getElementById('universal-back-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      window.location.href = 'custom-site-examples/index.html';
+    });
+  })();
+</script>
 </body>
 
 </html>
+
+
+
+

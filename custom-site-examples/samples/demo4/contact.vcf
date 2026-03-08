@@ -1,0 +1,14 @@
+﻿BEGIN:VCARD
+VERSION:3.0
+FN:Όνομα / Επωνυμία σας εδώ
+ORG:Η Επιχείρησή Σας
+TITLE:Το αντικείμενό σας εδώ
+TEL;TYPE=WORK,VOICE:6900000000
+EMAIL;TYPE=INTERNET,WORK:to-email-sas@example.com
+URL:https://yourbrand.gr
+ADR;TYPE=WORK:;;Η διεύθυνσή σας εδώ;;;;
+NOTE:Το logo σας εδώ | Η αξιολόγηση εδώ | Η διεύθυνσή σας εδώ
+END:VCARD
+
+
+

@@ -1,11 +1,10 @@
-BEGIN:VCARD
+﻿BEGIN:VCARD
 VERSION:3.0
-FN:Νάσος Ψαραδάκης
-N:Ψαραδάκης;Νάσος;;;
-ORG:NAEL Inspirations;printed3d.gr
+FN:Όνομα / Επωνυμία σας εδώ
+N:Όνομα / Επωνυμία σας εδώ;;;;
+ORG:Όνομα / Επωνυμία σας εδώ;Όνομα / Επωνυμία σας εδώ
 TITLE:Σχεδιασμός & Εκτυπώσεις 3D
-TEL;TYPE=CELL,VOICE:+30 6908636196
-EMAIL;TYPE=INTERNET,WORK:naelinspirations@outlook.com
-URL;TYPE=WORK:https://www.printed3d.gr
+TEL;TYPE=CELL,VOICE:6900000000
+EMAIL;TYPE=INTERNET,WORK:email@example.com
+URL;TYPE=WORK:https://www.to-domain-sas-edo.gr
 END:VCARD
-

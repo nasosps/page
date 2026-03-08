@@ -111,40 +111,9 @@
             background: #94a3b8;
         }
     </style>
-<style id="universal-back-style">
-  .universal-back-btn {
-    position: fixed;
-    top: 14px;
-    left: 14px;
-    z-index: 10000;
-    border: 1px solid rgba(15,23,42,.16);
-    background: rgba(255,255,255,.94);
-    color: #0f172a;
-    padding: 8px 12px;
-    border-radius: 999px;
-    font-size: 12px;
-    font-weight: 700;
-    box-shadow: 0 8px 20px rgba(15,23,42,.18);
-    cursor: pointer;
-    backdrop-filter: blur(6px);
-  }
-  .universal-back-btn:hover {
-    background: #fff;
-  }
-  @media (max-width: 640px) {
-    .universal-back-btn {
-      top: 10px;
-      left: 10px;
-      padding: 7px 11px;
-      font-size: 11px;
-    }
-  }
-</style>
 </head>
 
 <body class="text-slate-800 antialiased overflow-x-hidden selection:bg-orange-200 selection:text-orange-900">
-    <button id="universal-back-btn" class="universal-back-btn" type="button">← Πίσω</button>
-
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -763,25 +732,6 @@
 
         loadGalleryFromGithub();
     </script>
-<script id="universal-back-script">
-  (function () {
-    const btn = document.getElementById('universal-back-btn');
-    if (!btn) return;
-    const fallbackUrl = 'custom-site-examples/index.html';
-    btn.addEventListener('click', function () {
-      try {
-        const ref = document.referrer ? new URL(document.referrer) : null;
-        const sameOriginRef = !!ref && ref.origin === window.location.origin;
-        if (sameOriginRef && window.history.length > 1) {
-          window.history.back();
-          return;
-        }
-      } catch (e) {
-      }
-      window.location.href = fallbackUrl;
-    });
-  })();
-</script>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="el">
 <head>
 <meta charset="utf-8">
@@ -439,8 +439,18 @@ document.getElementById("y").textContent = new Date().getFullYear();
   (function () {
     const btn = document.getElementById('universal-back-btn');
     if (!btn) return;
+    const fallbackUrl = '../../index.html';
     btn.addEventListener('click', function () {
-      window.location.href = '../../index.html';
+      try {
+        const ref = document.referrer ? new URL(document.referrer) : null;
+        const sameOriginRef = !!ref && ref.origin === window.location.origin;
+        if (sameOriginRef && window.history.length > 1) {
+          window.history.back();
+          return;
+        }
+      } catch (e) {
+      }
+      window.location.href = fallbackUrl;
     });
   })();
 </script>

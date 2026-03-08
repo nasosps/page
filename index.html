@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="el" class="scroll-smooth">
 
 <head>
@@ -619,7 +619,7 @@
                 <div class="lg:col-span-2">
                     <h4 class="text-white font-bold mb-6">Επικοινωνία</h4>
                     <div class="grid sm:grid-cols-2 gap-6">
-                        <a href="tel:6900000000"
+                        <a href="tel:6908636196"
                             class="flex items-center gap-4 bg-slate-800 p-4 rounded-xl hover:bg-slate-700 transition group">
                             <div
                                 class="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-green-500 group-hover:scale-110 transition">
@@ -627,7 +627,7 @@
                             </div>
                             <div>
                                 <div class="text-xs text-slate-500 uppercase font-bold">Καλέστε με</div>
-                                <div class="text-white font-bold">6900000000</div>
+                                <div class="text-white font-bold">6908636196</div>
                             </div>
                         </a>
 
@@ -767,8 +767,18 @@
   (function () {
     const btn = document.getElementById('universal-back-btn');
     if (!btn) return;
+    const fallbackUrl = 'custom-site-examples/index.html';
     btn.addEventListener('click', function () {
-      window.location.href = 'custom-site-examples/index.html';
+      try {
+        const ref = document.referrer ? new URL(document.referrer) : null;
+        const sameOriginRef = !!ref && ref.origin === window.location.origin;
+        if (sameOriginRef && window.history.length > 1) {
+          window.history.back();
+          return;
+        }
+      } catch (e) {
+      }
+      window.location.href = fallbackUrl;
     });
   })();
 </script>

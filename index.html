@@ -93,6 +93,321 @@
             }
         }
 
+        .demo-orbit-wrap {
+            position: relative;
+            margin-top: .2rem;
+        }
+
+        .demo-showcase-core {
+            position: relative;
+            z-index: 2;
+        }
+
+        .demo-orbit-wrap::before {
+            content: "";
+            position: absolute;
+            inset: 1rem .45rem;
+            border-radius: 1.5rem;
+            border: 1px dashed rgba(251, 146, 60, 0.35);
+            background: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.07), transparent 65%);
+            pointer-events: none;
+        }
+
+        .demo-links-title {
+            margin-top: .9rem;
+            margin-bottom: .45rem;
+            text-align: center;
+            font-size: 11px;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #fdba74;
+        }
+
+        .demo-links {
+            display: grid;
+            gap: 0.55rem;
+            margin-top: .2rem;
+            position: relative;
+            z-index: 3;
+        }
+
+        .demo-arrow-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 0.68rem;
+            border-radius: 999px;
+            border: 1px solid rgba(251, 146, 60, 0.45);
+            background: rgba(30, 41, 59, 0.82);
+            text-decoration: none;
+            color: #f8fafc;
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+            z-index: 8;
+        }
+
+        .demo-arrow-link:hover {
+            transform: translateY(-2px) scale(1.01);
+            border-color: rgba(251, 146, 60, 0.95);
+            background: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 12px 25px rgba(15, 23, 42, 0.35);
+        }
+
+        .demo-arrow-icon {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
+            border-radius: 999px;
+            border: 1px solid rgba(251, 146, 60, 0.35);
+            background: rgba(2, 6, 23, 0.65);
+            color: #fb923c;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .demo-num {
+            display: block;
+            font-size: 10px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: #fdba74;
+        }
+
+        .demo-title {
+            display: block;
+            margin-top: 1px;
+            font-size: 13px;
+            line-height: 1.2;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .demo-desc {
+            display: block;
+            margin-top: 2px;
+            font-size: 11px;
+            line-height: 1.28;
+            color: #cbd5e1;
+        }
+
+        .demo-hint {
+            font-size: 11px;
+            letter-spacing: .02em;
+        }
+
+        @media (max-width: 1023.98px) {
+            .demo-orbit-wrap::before {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .demo-links-title {
+                position: absolute;
+                top: .45rem;
+                left: 50%;
+                transform: translateX(-50%);
+                margin: 0;
+                padding: .3rem .6rem;
+                border-radius: 999px;
+                border: 1px solid rgba(251, 146, 60, 0.32);
+                background: rgba(15, 23, 42, 0.6);
+            }
+
+            .demo-links {
+                position: absolute;
+                inset: 0;
+                margin-top: 0;
+                pointer-events: none;
+            }
+
+            .demo-arrow-link {
+                position: absolute;
+                width: 176px;
+                min-height: 46px;
+                padding: .42rem .58rem;
+                background: rgba(15, 23, 42, 0.82);
+                pointer-events: auto;
+            }
+
+            .demo-arrow-link.demo-right {
+                justify-content: flex-end;
+                text-align: right;
+            }
+
+            .demo-arrow-link.demo-right .demo-arrow-icon {
+                order: 2;
+            }
+
+            .demo-desc {
+                display: none;
+            }
+
+            .demo-title {
+                font-size: 11px;
+            }
+
+            .demo-pos-1 {
+                top: .8rem;
+                left: 1.1rem;
+            }
+
+            .demo-pos-2 {
+                top: .8rem;
+                right: 1.1rem;
+            }
+
+            .demo-pos-3 {
+                top: 3.8rem;
+                left: -.25rem;
+            }
+
+            .demo-pos-4 {
+                top: 3.8rem;
+                right: -.25rem;
+            }
+
+            .demo-pos-5 {
+                bottom: 3.8rem;
+                left: -.25rem;
+            }
+
+            .demo-pos-6 {
+                bottom: 3.8rem;
+                right: -.25rem;
+            }
+
+            .demo-pos-7 {
+                bottom: .8rem;
+                left: 1.1rem;
+            }
+
+            .demo-pos-8 {
+                bottom: .8rem;
+                right: 1.1rem;
+            }
+        }
+
+        .demo-stage-wrap {
+            position: relative;
+            width: 100%;
+        }
+
+        .demo-side-list {
+            display: none;
+        }
+
+        .demo-side-title {
+            text-align: center;
+            font-size: 15px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            font-weight: 900;
+            color: #fdba74;
+            margin-bottom: 0.45rem;
+        }
+
+        .demo-mobile-list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.55rem;
+            margin-top: 0.9rem;
+        }
+
+        .demo-side-link {
+            position: static !important;
+            width: 100% !important;
+            min-height: 0 !important;
+            padding: .44rem .58rem !important;
+            pointer-events: auto !important;
+        }
+
+        .demo-side-link .demo-title {
+            font-size: 13px;
+        }
+
+        .demo-side-link .demo-num {
+            font-size: 11px;
+        }
+
+        .demo-side-link .demo-desc {
+            display: none !important;
+        }
+
+        .demo-side-link .demo-arrow-icon {
+            width: 24px;
+            height: 24px;
+            font-size: 11px;
+        }
+
+        @media (min-width: 640px) {
+            .demo-mobile-list {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .demo-stage-wrap {
+                max-width: 1280px;
+                margin-inline: auto;
+                padding-inline: 240px;
+            }
+
+            .demo-side-list {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 255px;
+                display: grid;
+                gap: 0.75rem;
+                z-index: 6;
+            }
+
+            .demo-side-list .demo-side-link {
+                min-height: 64px !important;
+                padding: .72rem .9rem !important;
+                border-radius: 20px;
+            }
+
+            .demo-side-list .demo-side-link .demo-title {
+                font-size: 15px;
+            }
+
+            .demo-side-list .demo-side-link .demo-num {
+                font-size: 13px;
+            }
+
+            .demo-side-list .demo-side-link .demo-arrow-icon {
+                width: 30px;
+                height: 30px;
+                font-size: 13px;
+            }
+
+            .demo-side-left {
+                left: 8px;
+            }
+
+            .demo-side-right {
+                right: 8px;
+            }
+
+            .demo-side-right .demo-side-link {
+                justify-content: flex-end;
+                text-align: right;
+            }
+
+            .demo-side-right .demo-side-link .demo-arrow-icon {
+                order: 2;
+            }
+
+            .demo-mobile-list {
+                display: none;
+            }
+        }
+
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 10px;
@@ -134,7 +449,7 @@
                     <a href="#printed3d" class="text-sm font-medium hover:text-orange-600 transition">3D Printing</a>
                     <a href="#nael" class="text-sm font-medium hover:text-orange-600 transition">Handmade</a>
                     <a href="#gallery" class="text-sm font-medium hover:text-orange-600 transition">Gallery</a>
-                    <a href="custom-site-examples/index.html"
+                    <a href="#custom-qr-demos"
                         class="px-4 py-2 rounded-full bg-white text-slate-900 text-xs font-extrabold border border-slate-200 hover:border-orange-300 hover:text-orange-600 transition shadow-sm whitespace-nowrap">Δείγματα
                         Custom Sites</a>
                     <a href="#contact"
@@ -163,7 +478,7 @@
                         class="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition">Handmade</a>
                     <a href="#gallery"
                         class="block px-4 py-3 rounded-xl text-base font-medium text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition">Gallery</a>
-                    <a href="custom-site-examples/index.html"
+                    <a href="#custom-qr-demos"
                         class="block px-4 py-3 rounded-xl text-base font-bold text-slate-700 hover:text-orange-600 hover:bg-orange-50 transition">Δείγματα
                         Custom Sites</a>
                     <a href="#contact"
@@ -187,11 +502,11 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 gap-10 items-start">
                 <!-- Hero Content -->
-                <div class="order-2 lg:order-2" data-aos="fade-right" data-aos-duration="1000">
+                <div class="order-2 max-w-4xl mx-auto text-center" data-aos="fade-right" data-aos-duration="1000">
                     <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-orange-600 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
+                        class="inline-flex items-center justify-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-orange-600 text-xs font-bold uppercase tracking-wider mb-6 shadow-sm">
                         <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                         Διαθέσιμος για νέα projects
                     </div>
@@ -202,13 +517,13 @@
                         <span class="gradient-text font-serif-accent italic pr-2">μοναδικά</span> αντικείμενα.
                     </h1>
 
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-xl">
+                    <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-3xl mx-auto">
                         Συνδυάζω την ακρίβεια της <strong>3D εκτύπωσης</strong> με τη φινέτσα του
                         <strong>χειροποίητου</strong>.
                         Από custom μπομπονιέρες και δώρα, μέχρι εξειδικευμένες κατασκευές.
                     </p>
 
-                    <div class="flex flex-wrap gap-4">
+                    <div class="flex flex-wrap gap-4 justify-center">
                         
                         <a href="#gallery"
                             class="flex items-center gap-3 px-6 py-4 rounded-full bg-white text-slate-900 font-bold border border-slate-200 shadow-lg hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 transition transform hover:-translate-y-1">
@@ -218,7 +533,7 @@
                     </div>
 
                     <!-- Tags -->
-                    <div class="mt-10 flex flex-wrap gap-2 opacity-70">
+                    <div class="mt-10 flex flex-wrap gap-2 opacity-70 justify-center">
                         <span
                             class="px-3 py-1 rounded-lg bg-slate-100 text-xs font-medium text-slate-500">#3dprinting</span>
                         <span
@@ -231,8 +546,48 @@
                 </div>
 
                 <!-- Hero QR + CTA Showcase -->
-                <div class="order-1 lg:order-1 relative lg:h-[620px] flex items-center justify-center p-1 sm:p-3 lg:p-0" data-aos="fade-left"
+                <div class="order-1 demo-stage-wrap relative flex flex-col items-center p-1 sm:p-3 lg:p-0" data-aos="fade-left"
                     data-aos-duration="1200">
+                    <div class="demo-side-list demo-side-left">
+                        <div class="demo-side-title">Custom Sites</div>
+                        <a href="custom-site-examples/samples/demo1/index.html" class="demo-arrow-link demo-side-link">
+                            <span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span>
+                            <span><span class="demo-num">Demo 01</span><span class="demo-title">Creative Handmade</span></span>
+                        </a>
+                        <a href="custom-site-examples/samples/demo3/index.html" class="demo-arrow-link demo-side-link">
+                            <span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span>
+                            <span><span class="demo-num">Demo 03</span><span class="demo-title">Equipment Business</span></span>
+                        </a>
+                        <a href="custom-site-examples/samples/demo5/index.html" class="demo-arrow-link demo-side-link">
+                            <span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span>
+                            <span><span class="demo-num">Demo 05</span><span class="demo-title">Service Point</span></span>
+                        </a>
+                        <a href="custom-site-examples/samples/demo7/index.html" class="demo-arrow-link demo-side-link">
+                            <span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span>
+                            <span><span class="demo-num">Demo 07</span><span class="demo-title">Pharmacy</span></span>
+                        </a>
+                    </div>
+
+                    <div class="demo-side-list demo-side-right">
+                        <div class="demo-side-title">Custom Sites</div>
+                        <a href="custom-site-examples/samples/demo2/index.html" class="demo-arrow-link demo-side-link">
+                            <span class="demo-arrow-icon"><i class="fas fa-arrow-left"></i></span>
+                            <span><span class="demo-num">Demo 02</span><span class="demo-title">Beauty & Wellness</span></span>
+                        </a>
+                        <a href="custom-site-examples/samples/demo4/index.html" class="demo-arrow-link demo-side-link">
+                            <span class="demo-arrow-icon"><i class="fas fa-arrow-left"></i></span>
+                            <span><span class="demo-num">Demo 04</span><span class="demo-title">Food Delivery</span></span>
+                        </a>
+                        <a href="custom-site-examples/samples/demo6/index.html" class="demo-arrow-link demo-side-link">
+                            <span class="demo-arrow-icon"><i class="fas fa-arrow-left"></i></span>
+                            <span><span class="demo-num">Demo 06</span><span class="demo-title">All Day Bistro</span></span>
+                        </a>
+                        <a href="custom-site-examples/samples/demo8/index.html" class="demo-arrow-link demo-side-link">
+                            <span class="demo-arrow-icon"><i class="fas fa-arrow-left"></i></span>
+                            <span><span class="demo-num">Demo 08</span><span class="demo-title">Veterinary Center</span></span>
+                        </a>
+                    </div>
+
                     <div class="relative w-full max-w-2xl">
                         <div class="absolute -top-8 -right-8 w-32 h-32 rounded-full bg-orange-300/30 blur-3xl"></div>
                         <div class="absolute -bottom-8 -left-8 w-36 h-36 rounded-full bg-sky-300/30 blur-3xl"></div>
@@ -252,7 +607,7 @@
                                 Με ένα scan στο QR, ανοίγει άμεσα το custom site που φτιάχνω για εσάς.
                             </p>
 
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-5">
+                            <div id="custom-qr-demos" class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-4">
                                 <div class="rounded-2xl bg-white/10 border border-white/15 p-3">
                                     <img src="qr_front.jpg" alt="QR μπρελόκ μπροστά" class="w-full h-44 sm:h-48 object-contain rounded-xl bg-slate-900/30">
                                     <p class="text-center text-xs text-slate-300 mt-2 font-semibold">QR πλευρά</p>
@@ -263,17 +618,21 @@
                                 </div>
                             </div>
 
-                            <div class="flex items-center justify-center gap-1 text-orange-300 mb-2">
-                                <i class="fas fa-arrow-down cta-arrow"></i>
-                                <i class="fas fa-arrow-down cta-arrow"></i>
-                                <i class="fas fa-arrow-down cta-arrow"></i>
-                            </div>
-
-                            <a href="custom-site-examples/index.html"
-                                class="block w-full text-center px-4 sm:px-6 py-5 sm:py-6 rounded-2xl bg-gradient-to-r from-orange-500 via-rose-500 to-pink-500 text-white text-base sm:text-xl font-extrabold shadow-2xl hover:shadow-orange-500/40 transition transform hover:-translate-y-0.5">
-                                Custom QR Key Chain + Δείγματα από Custom Sites
-                            </a>
+                            <p class="demo-hint text-slate-300/90 text-center mb-4">
+                                Πάτα σε οποιοδήποτε demo για άμεσο άνοιγμα.
+                            </p>
                         </div>
+                    </div>
+
+                    <div class="demo-mobile-list w-full max-w-2xl">
+                        <a href="custom-site-examples/samples/demo1/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">Demo 01</span><span class="demo-title">Creative Handmade</span></span></a>
+                        <a href="custom-site-examples/samples/demo2/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">Demo 02</span><span class="demo-title">Beauty & Wellness</span></span></a>
+                        <a href="custom-site-examples/samples/demo3/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">Demo 03</span><span class="demo-title">Equipment Business</span></span></a>
+                        <a href="custom-site-examples/samples/demo4/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">Demo 04</span><span class="demo-title">Food Delivery</span></span></a>
+                        <a href="custom-site-examples/samples/demo5/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">Demo 05</span><span class="demo-title">Service Point</span></span></a>
+                        <a href="custom-site-examples/samples/demo6/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">Demo 06</span><span class="demo-title">All Day Bistro</span></span></a>
+                        <a href="custom-site-examples/samples/demo7/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">Demo 07</span><span class="demo-title">Pharmacy</span></span></a>
+                        <a href="custom-site-examples/samples/demo8/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">Demo 08</span><span class="demo-title">Veterinary Center</span></span></a>
                     </div>
                 </div>
             </div>
@@ -735,7 +1094,3 @@
 </body>
 
 </html>
-
-
-
-

@@ -244,6 +244,32 @@
             min-height: 3.5rem;
         }
 
+        .hero-cta-button span {
+            min-width: 0;
+        }
+
+        .hero-section {
+            padding-top: clamp(7rem, 12vw, 12rem);
+            padding-bottom: clamp(4.5rem, 8vw, 8rem);
+        }
+
+        .section-block {
+            padding-top: clamp(4.5rem, 8vw, 6rem);
+            padding-bottom: clamp(4.5rem, 8vw, 6rem);
+        }
+
+        .balance-text {
+            text-wrap: balance;
+        }
+
+        .pretty-text {
+            text-wrap: pretty;
+        }
+
+        .hero-proof-grid > * {
+            height: 100%;
+        }
+
         .demo-hint {
             font-size: 11px;
             letter-spacing: .02em;
@@ -252,6 +278,36 @@
         @media (max-width: 1023.98px) {
             .demo-orbit-wrap::before {
                 display: none;
+            }
+        }
+
+        @media (max-width: 639.98px) {
+            .portfolio-filter {
+                flex: 1 1 calc(50% - 0.75rem);
+                width: calc(50% - 0.75rem);
+                padding-inline: 0.85rem;
+            }
+
+            .hero-proof-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-mobile-list {
+                gap: 0.7rem;
+            }
+
+            .demo-side-link {
+                padding: 0.72rem 0.78rem !important;
+                border-radius: 18px !important;
+            }
+
+            .demo-side-link .demo-title {
+                font-size: 12px;
+                line-height: 1.25;
+            }
+
+            .demo-side-link .demo-num {
+                font-size: 10px;
             }
         }
 
@@ -540,7 +596,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+    <section class="hero-section relative overflow-hidden">
         <!-- Background Decor -->
         <div class="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
             <div
@@ -562,20 +618,20 @@
                         Κοινή δημιουργική δραστηριότητα
                     </div>
 
-                    <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight mb-6 text-slate-900">
-                        <span class="block text-2xl lg:text-4xl text-orange-600 mb-2">Νάσος + Ελπίδα</span>
+                    <h1 class="balance-text text-[2.7rem] sm:text-5xl lg:text-7xl font-extrabold leading-[0.95] mb-6 text-slate-900">
+                        <span class="block text-xl sm:text-2xl lg:text-4xl text-orange-600 mb-3">Νάσος + Ελπίδα</span>
                         Μαζί δημιουργούμε <br>
                         <span class="gradient-text font-serif-accent italic pr-2">μοναδικά</span> αντικείμενα και ιδέες.
                     </h1>
 
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+                    <p class="pretty-text text-base sm:text-lg text-slate-600 mb-8 leading-relaxed max-w-3xl mx-auto">
                         Το <strong>NAEL</strong> γεννήθηκε από τα ονόματά μας, <strong>Νάσος</strong> και
                         <strong>Ελπίδα</strong>, και ενώνει την ακρίβεια της <strong>3D εκτύπωσης</strong> με την
                         αισθητική του <strong>χειροποίητου</strong>. Δημιουργούμε μαζί προσωποποιημένα δώρα,
                         χειροποίητα κάδρα, custom QR projects και ιδιαίτερες κατασκευές που έχουν χαρακτήρα.
                     </p>
 
-                    <div class="flex flex-wrap gap-4 justify-center">
+                    <div class="flex flex-wrap gap-3 sm:gap-4 justify-center max-w-4xl mx-auto">
                         <a href="#custom-qr-demos"
                             class="hero-cta-button flex items-center gap-3 px-6 py-4 rounded-full bg-slate-900 text-white font-bold shadow-lg hover:bg-orange-600 transition transform hover:-translate-y-1 sm:w-auto w-full">
                             <span>Δες custom site demos</span>
@@ -605,7 +661,7 @@
                             class="px-3 py-1 rounded-lg bg-slate-100 text-xs font-medium text-slate-500">#nael_inspirations</span>
                     </div>
 
-                    <div class="mt-10 grid sm:grid-cols-2 xl:grid-cols-5 gap-4 max-w-6xl mx-auto text-left">
+                    <div class="hero-proof-grid mt-10 grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 max-w-6xl mx-auto text-left">
                         <a href="#custom-qr-demos"
                             class="glass-card rounded-2xl p-4 shadow-md hover:shadow-xl transition transform hover:-translate-y-1 border border-white/60">
                             <div class="text-xs font-extrabold uppercase tracking-[0.18em] text-orange-500 mb-2">NAEL Story</div>
@@ -732,20 +788,20 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-24 bg-white relative">
+    <section id="about" class="section-block bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div data-aos="fade-up">
-                    <h2 class="text-4xl font-extrabold text-slate-900 mb-6">Η ιστορία πίσω από το <span
+                    <h2 class="balance-text text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6">Η ιστορία πίσω από το <span
                             class="gradient-text">NAEL</span></h2>
                     <div class="w-20 h-1.5 gradient-bg rounded-full mb-8"></div>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                    <p class="pretty-text text-base sm:text-lg text-slate-600 mb-6 leading-relaxed">
                         Το <strong class="text-slate-900">NAEL</strong> είναι μια κοινή δημιουργική δραστηριότητα
                         που ξεκίνησε από τον <strong class="text-slate-900">Νάσο</strong> και την
                         <strong class="text-slate-900">Ελπίδα</strong>. Το όνομα βγαίνει από τα μικρά μας ονόματα:
                         <strong>ΝΑ</strong> από το Νάσος και <strong>ΕΛ</strong> από το Ελπίδα.
                     </p>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                    <p class="pretty-text text-base sm:text-lg text-slate-600 mb-8 leading-relaxed">
                         Μαζί δημιουργούμε έργα που κινούνται ανάμεσα στο <strong>printed3d.gr</strong> και στο
                         <strong>NAEL Inspirations</strong>: 3D εκτυπώσεις, χειροποίητα κάδρα, προσωποποιημένα δώρα,
                         custom QR projects και ιδιαίτερες μικρές κατασκευές που θέλουμε να έχουν ψυχή και όχι απλώς να
@@ -794,11 +850,11 @@
     </section>
 
     <!-- Services Section -->
-    <section id="printed3d" class="py-24 bg-slate-50">
+    <section id="printed3d" class="section-block bg-slate-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
-                <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">Τεχνολογία, χειροποίητο και κοινή αισθητική</h2>
-                <p class="text-slate-600 text-lg">Δύο άνθρωποι, μία κοινή κατεύθυνση και έργα που δεν μοιάζουν μαζικά.</p>
+                <h2 class="balance-text text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">Τεχνολογία, χειροποίητο και κοινή αισθητική</h2>
+                <p class="pretty-text text-slate-600 text-base sm:text-lg">Δύο άνθρωποι, μία κοινή κατεύθυνση και έργα που δεν μοιάζουν μαζικά.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
@@ -862,15 +918,15 @@
     </section>
 
     <!-- Featured Work Categories -->
-    <section id="featured-work" class="py-20 bg-white overflow-hidden">
+    <section id="featured-work" class="section-block bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
                 <div data-aos="fade-right" class="max-w-3xl">
                     <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-100 text-orange-600 text-xs font-bold uppercase tracking-wider mb-5">
                         Πραγματικά δείγματα
                     </span>
-                    <h2 class="text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">Κατηγορίες έργων που δείχνουν τι μπορώ να στήσω για εσένα</h2>
-                    <p class="text-lg text-slate-600 leading-relaxed">
+                    <h2 class="balance-text text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4">Κατηγορίες έργων που δείχνουν τι μπορούμε να στήσουμε για εσένα</h2>
+                    <p class="pretty-text text-base sm:text-lg text-slate-600 leading-relaxed">
                         Όχι moodboard. Όχι stock εικόνες. Εδώ φαίνεται η πραγματική κατεύθυνση της δουλειάς:
                         από χρηστικά 3D αντικείμενα και branded projects, μέχρι δώρα, seasonal συνθέσεις και custom QR activations.
                     </p>
@@ -965,14 +1021,14 @@
     </section>
 
     <!-- Gallery Section (Dynamic) -->
-    <section id="gallery" class="py-24 bg-slate-900 text-white relative">
+    <section id="gallery" class="section-block bg-slate-900 text-white relative">
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-16" data-aos="fade-down">
                 <span class="text-orange-500 font-bold tracking-widest uppercase text-sm">Portfolio</span>
-                <h2 class="text-4xl font-extrabold mt-2">Curated Δείγματα Δουλειάς</h2>
-                <p class="max-w-3xl mx-auto text-slate-400 mt-4 leading-relaxed">
+                <h2 class="balance-text text-3xl sm:text-4xl font-extrabold mt-2">Curated Δείγματα Δουλειάς</h2>
+                <p class="pretty-text max-w-3xl mx-auto text-slate-400 mt-4 leading-relaxed">
                     Επέλεξα πραγματικά έργα από διαφορετικές κατηγορίες ώστε να φαίνεται πιο καθαρά το εύρος,
                     το ύφος και ο τρόπος που “κουμπώνει” η ιδέα με το τελικό αντικείμενο.
                 </p>
@@ -1002,11 +1058,11 @@
     </section>
 
     <!-- Process -->
-    <section class="py-24 bg-orange-50">
+    <section class="section-block bg-orange-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-3xl font-bold text-slate-900">Πώς να παραγγείλεις</h2>
-                <p class="text-slate-600 mt-2">Απλά βήματα για να κάνουμε την ιδέα σου πραγματικότητα.</p>
+                <h2 class="balance-text text-3xl font-bold text-slate-900">Πώς να παραγγείλεις</h2>
+                <p class="pretty-text text-slate-600 mt-2">Απλά βήματα για να κάνουμε την ιδέα σου πραγματικότητα.</p>
             </div>
 
             <div class="relative">
@@ -1069,15 +1125,15 @@
     </section>
 
     <!-- Footer / Contact -->
-    <footer id="contact" class="bg-slate-900 text-slate-300 py-16 border-t border-slate-800">
+    <footer id="contact" class="bg-slate-900 text-slate-300 py-14 sm:py-16 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
                 <!-- Brand -->
                 <div class="col-span-1 lg:col-span-1">
                     <img src="logo-nael.png" alt="Logo White"
                         class="h-16 w-16 mb-6 opacity-90 rounded-2xl bg-white/10 p-2">
-                    <h3 class="text-white text-xl font-bold mb-4">NAEL Inspirations</h3>
-                    <p class="text-sm leading-relaxed mb-6">
+                    <h3 class="balance-text text-white text-xl font-bold mb-4">NAEL Inspirations</h3>
+                    <p class="pretty-text text-sm leading-relaxed mb-6">
                         Κοινή δημιουργική δραστηριότητα από τον Νάσο και την Ελπίδα, με 3D εκτυπώσεις,
                         χειροποίητα κάδρα, δώρα και custom projects από το Ηράκλειο Κρήτης.
                     </p>
@@ -1103,7 +1159,7 @@
                 <!-- Contact Info -->
                 <div class="lg:col-span-2">
                     <h4 class="text-white font-bold mb-6">Επικοινωνία</h4>
-                    <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div class="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
                         <a href="tel:6908636196"
                             class="flex items-center gap-4 bg-slate-800 p-4 rounded-xl hover:bg-slate-700 transition group">
                             <div

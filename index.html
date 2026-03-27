@@ -1218,11 +1218,32 @@
     <!-- Scripts -->
     <script>
         // Init Animations
-        AOS.init({
-            once: true,
-            offset: 100,
-            duration: 800,
-        });
+        if (window.AOS) {
+            AOS.init({
+                once: true,
+                offset: 100,
+                duration: 800,
+            });
+        }
+
+        // Footer year
+        const yearEl = document.getElementById('year');
+        if (yearEl) {
+            yearEl.textContent = new Date().getFullYear();
+        }
+
+        // Navbar scroll state
+        const navbar = document.getElementById('navbar');
+        const updateNavbarState = () => {
+            if (!navbar) {
+                return;
+            }
+
+            navbar.classList.toggle('is-scrolled', window.scrollY > 12);
+        };
+
+        updateNavbarState();
+        window.addEventListener('scroll', updateNavbarState, { passive: true });
 
         // Mobile Menu Toggle
         const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -1241,6 +1262,259 @@
                 });
             });
         }
+
+        const galleryFiles = [
+            '2024.png',
+            'APOSTOLH_AGAPIS_MOBILE_BASE.png',
+            'ARMAOS.png',
+            'CASSETTA.png',
+            'CHRISTMAS_ORNAMENT.png',
+            'COOKIE_CUTTERS.png',
+            'DASKALAKIS.png',
+            'FTYLAKIS1.jpg',
+            'FTYLAKIS2.jpg',
+            'full_20250508190642_f918050e_oikogeneia-cheiropoiito-kadro.jpeg',
+            'full_20250509111329_75742e3c_sti-daskala-cheiropoiito.png',
+            'full_20250509111849_5ac9cb1d_se-agapo-mama.jpeg',
+            'full_20250509112526_f91f58d3_love-cheiropoiito-kadro.jpeg',
+            'full_20250608134609_8a5d1e8f_se-agapo-mpampa.png',
+            'full_20250806190338_f15228ba_welcome-pinakas-kamva.jpeg',
+            'GF_CARS.png',
+            'IB.png',
+            'kalamaki.jpg',
+            'kalamaki2.jpg',
+            'KALATHI.png',
+            'KOULOUKI_STO_AMAXSI.png',
+            'LE_GRAND_BOOKMARKS.png',
+            'OFH_MPRELOK.png',
+            'OFI_MOBILE_BASE.png',
+            'OPTICAL_ART_QR_STAND.png',
+            'ORNAMENT.png',
+            'OSCAR.png',
+            'SHAPE_BALANCE.png',
+            'STENCIL_DENTRO.png',
+            'STENCIL_MERRY_CHRISTMAS.png',
+            'STRONGBULL.png',
+            'TAMPER.png',
+            'VET_MEDICA.png',
+        ];
+
+        const titleOverrides = {
+            '2024.png': '2024 Ornament',
+            'APOSTOLH_AGAPIS_MOBILE_BASE.png': 'Apostoli Agapis Mobile Base',
+            'ARMAOS.png': 'Armaos',
+            'CASSETTA.png': 'Cassette Decor',
+            'CHRISTMAS_ORNAMENT.png': 'Christmas Ornament',
+            'COOKIE_CUTTERS.png': 'Cookie Cutters',
+            'DASKALAKIS.png': 'Daskalakis',
+            'FTYLAKIS1.jpg': 'Ftylakis Concept 01',
+            'FTYLAKIS2.jpg': 'Ftylakis Concept 02',
+            'full_20250508190642_f918050e_oikogeneia-cheiropoiito-kadro.jpeg': 'Oikogeneia Handmade Frame',
+            'full_20250509111329_75742e3c_sti-daskala-cheiropoiito.png': 'Gift for Teacher',
+            'full_20250509111849_5ac9cb1d_se-agapo-mama.jpeg': 'Se Agapo Mama',
+            'full_20250509112526_f91f58d3_love-cheiropoiito-kadro.jpeg': 'Love Handmade Frame',
+            'full_20250608134609_8a5d1e8f_se-agapo-mpampa.png': 'Se Agapo Mpampa',
+            'full_20250806190338_f15228ba_welcome-pinakas-kamva.jpeg': 'Welcome Canvas Sign',
+            'GF_CARS.png': 'GF Cars',
+            'IB.png': 'IB',
+            'kalamaki.jpg': 'Kalamaki Stand',
+            'kalamaki2.jpg': 'Kalamaki Stand 02',
+            'KALATHI.png': 'Kalathi',
+            'KOULOUKI_STO_AMAXSI.png': 'Koulouki Sto Amaxsi',
+            'LE_GRAND_BOOKMARKS.png': 'Le Grand Bookmarks',
+            'OFH_MPRELOK.png': 'OFH Keychain',
+            'OFI_MOBILE_BASE.png': 'OFI Mobile Base',
+            'OPTICAL_ART_QR_STAND.png': 'Optical Art QR Stand',
+            'ORNAMENT.png': 'Ornament',
+            'OSCAR.png': 'Oscar',
+            'SHAPE_BALANCE.png': 'Shape Balance',
+            'STENCIL_DENTRO.png': 'Stencil Dentro',
+            'STENCIL_MERRY_CHRISTMAS.png': 'Stencil Merry Christmas',
+            'STRONGBULL.png': 'Strongbull',
+            'TAMPER.png': 'Tamper',
+            'VET_MEDICA.png': 'Vet Medica',
+        };
+
+        const categoryRules = [
+            {
+                id: 'business',
+                label: 'Business Projects',
+                matcher: /(apostolh_agapis|armaos|daskalakis|ftylakis|gf_cars|ib|oscar|strongbull|tamper|vet_medica)/i,
+                description: 'Branded and client-facing builds with a clean professional feel.',
+            },
+            {
+                id: 'gifts',
+                label: 'Gifts & Frames',
+                matcher: /(full_|kalathi|koulouki_sto_amaxsi|le_grand_bookmarks)/i,
+                description: 'Personalized gifts, frames, and keepsakes with a more emotional tone.',
+            },
+            {
+                id: 'decor',
+                label: 'Seasonal & Decor',
+                matcher: /(2024|christmas_ornament|ornament|stencil_)/i,
+                description: 'Seasonal ideas and decorative pieces for home, events, or display corners.',
+            },
+            {
+                id: 'prints',
+                label: 'Functional Prints',
+                matcher: /(cassetta|cookie_cutters|kalamaki|ofh_mprelok|ofi_mobile_base|optical_art_qr_stand|shape_balance)/i,
+                description: 'Useful 3D printed objects focused on everyday utility and finishing.',
+            },
+        ];
+
+        const galleryGrid = document.getElementById('gallery-grid');
+        const galleryFilters = document.getElementById('gallery-filters');
+        const gallerySummary = document.getElementById('gallery-summary');
+
+        const escapeHtml = (value) => String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+
+        const humanizeFilename = (filename) => {
+            const withoutExt = filename.replace(/\.[^.]+$/, '');
+            const cleaned = withoutExt
+                .replace(/^full_\d+_[a-f0-9]+_/i, '')
+                .replace(/[_-]+/g, ' ')
+                .trim();
+
+            return cleaned.replace(/\b\w/g, (char) => char.toUpperCase());
+        };
+
+        const getCategory = (filename) => {
+            const matchedRule = categoryRules.find((rule) => rule.matcher.test(filename));
+
+            if (matchedRule) {
+                return matchedRule;
+            }
+
+            return {
+                id: 'prints',
+                label: 'Functional Prints',
+                description: 'Useful 3D printed objects focused on everyday utility and finishing.',
+            };
+        };
+
+        const galleryItems = galleryFiles.map((file) => {
+            const category = getCategory(file);
+
+            return {
+                src: file,
+                title: titleOverrides[file] || humanizeFilename(file),
+                categoryId: category.id,
+                categoryLabel: category.label,
+                description: category.description,
+            };
+        });
+
+        const galleryFiltersData = [
+            {
+                id: 'all',
+                label: 'All Works',
+                count: galleryItems.length,
+            },
+            ...categoryRules
+                .map((rule) => ({
+                    id: rule.id,
+                    label: rule.label,
+                    count: galleryItems.filter((item) => item.categoryId === rule.id).length,
+                }))
+                .filter((filter) => filter.count > 0),
+        ];
+
+        let activeFilter = 'all';
+
+        const getVisibleItems = () => (
+            activeFilter === 'all'
+                ? galleryItems
+                : galleryItems.filter((item) => item.categoryId === activeFilter)
+        );
+
+        const renderGallerySummary = (items) => {
+            if (!gallerySummary) {
+                return;
+            }
+
+            const activeFilterLabel = galleryFiltersData.find((filter) => filter.id === activeFilter)?.label || 'All Works';
+            gallerySummary.textContent = `Showing ${items.length} of ${galleryItems.length} works in ${activeFilterLabel}.`;
+        };
+
+        const renderGallery = () => {
+            if (!galleryGrid) {
+                return;
+            }
+
+            const visibleItems = getVisibleItems();
+
+            if (visibleItems.length === 0) {
+                galleryGrid.innerHTML = `
+                    <div class="mb-6 rounded-[28px] border border-slate-800 bg-slate-950/70 p-8 text-center text-slate-300" style="break-inside: avoid;">
+                        No projects match this filter yet.
+                    </div>
+                `;
+                renderGallerySummary(visibleItems);
+                return;
+            }
+
+            galleryGrid.innerHTML = visibleItems.map((item) => `
+                <article class="group mb-6 overflow-hidden rounded-[28px] border border-slate-800 bg-slate-950/75 shadow-xl transition duration-300 hover:-translate-y-1 hover:shadow-2xl" style="break-inside: avoid;">
+                    <a href="${escapeHtml(item.src)}" target="_blank" rel="noopener" class="block overflow-hidden bg-slate-800/70">
+                        <img
+                            src="${escapeHtml(item.src)}"
+                            alt="${escapeHtml(item.title)}"
+                            loading="lazy"
+                            decoding="async"
+                            class="w-full h-auto object-cover transition duration-500 group-hover:scale-[1.02]"
+                        >
+                    </a>
+                    <div class="p-5">
+                        <div class="flex items-center justify-between gap-3 mb-3">
+                            <span class="inline-flex items-center rounded-full bg-orange-500/10 px-3 py-1 text-[11px] font-extrabold uppercase tracking-[0.16em] text-orange-300">
+                                ${escapeHtml(item.categoryLabel)}
+                            </span>
+                            <a href="${escapeHtml(item.src)}" target="_blank" rel="noopener" class="text-slate-500 transition hover:text-white" aria-label="Open ${escapeHtml(item.title)}">
+                                <i class="fas fa-up-right-from-square"></i>
+                            </a>
+                        </div>
+                        <h3 class="text-lg font-bold text-white leading-snug">${escapeHtml(item.title)}</h3>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-400">${escapeHtml(item.description)}</p>
+                    </div>
+                </article>
+            `).join('');
+
+            renderGallerySummary(visibleItems);
+        };
+
+        const renderGalleryFilters = () => {
+            if (!galleryFilters) {
+                return;
+            }
+
+            galleryFilters.innerHTML = galleryFiltersData.map((filter) => `
+                <button
+                    type="button"
+                    class="portfolio-filter rounded-full border px-4 py-3 text-sm font-bold"
+                    data-filter="${escapeHtml(filter.id)}"
+                    data-active="${filter.id === activeFilter ? 'true' : 'false'}"
+                >
+                    <span>${escapeHtml(filter.label)}</span>
+                    <span class="ml-2 text-[11px] font-extrabold opacity-80">${filter.count}</span>
+                </button>
+            `).join('');
+
+            galleryFilters.querySelectorAll('[data-filter]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    activeFilter = button.getAttribute('data-filter') || 'all';
+                    renderGalleryFilters();
+                    renderGallery();
+                });
+            });
+        };
+
+        renderGalleryFilters();
+        renderGallery();
 
     </script>
         <!-- NAEL credit -->

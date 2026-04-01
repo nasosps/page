@@ -8,6 +8,13 @@
     <meta name="description"
         content="printed3d.gr & NAEL Inspirations – κοινές δημιουργίες με 3D εκτυπώσεις, χειροποίητα κάδρα, δώρα και custom projects.">
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="printed3d.gr & NAEL Inspirations – 3D Εκτυπώσεις & Χειροποίητες Δημιουργίες">
+    <meta property="og:description" content="printed3d.gr & NAEL Inspirations – κοινές δημιουργίες με 3D εκτυπώσεις, χειροποίητα κάδρα, δώρα και custom projects.">
+    <meta property="og:image" content="logo-nael.png">
+    <meta name="twitter:card" content="summary_large_image">
+
     <!-- Dependencies -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,6 +22,8 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap"
         rel="stylesheet">
@@ -450,11 +459,7 @@
             font-size: 11px;
         }
 
-        @media (min-width: 640px) {
-            .demo-mobile-list {
-                grid-template-columns: repeat(2, minmax(0, 1fr));
-            }
-        }
+        /* demo-mobile-list stays 1-col — new cards are wide enough */
 
         @media (min-width: 1280px) {
             .demo-stage-wrap {
@@ -532,6 +537,120 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #94a3b8;
         }
+
+        /* Mobile sticky bottom bar */
+        .mobile-sticky-bar {
+            display: none;
+        }
+
+        @media (max-width: 767.98px) {
+            .mobile-sticky-bar {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 72px;
+            }
+
+            .qr-how-it-works {
+                display: flex;
+            }
+        }
+
+        .qr-how-it-works {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 0.75rem 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .qr-step {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
+            text-align: center;
+        }
+
+        .qr-step-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .qr-step-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            color: #e2e8f0;
+            line-height: 1.25;
+        }
+
+        .qr-step-arrow {
+            font-size: 12px;
+            color: rgba(251,146,60,0.7);
+            padding: 0 0.2rem;
+            flex-shrink: 0;
+            margin-bottom: 16px;
+        }
+
+        .mobile-demo-card {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            padding: 0.65rem 0.75rem;
+            border-radius: 16px;
+            border: 1px solid rgba(251,146,60,0.35);
+            background: rgba(15,23,42,0.75);
+            text-decoration: none;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .mobile-demo-card:active {
+            transform: scale(0.97);
+            background: rgba(15,23,42,0.95);
+        }
+
+        .mobile-demo-num {
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #fdba74;
+            display: block;
+        }
+
+        .mobile-demo-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #ffffff;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .mobile-demo-icon {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+            border-radius: 10px;
+            background: rgba(234,88,12,0.18);
+            border: 1px solid rgba(251,146,60,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fb923c;
+            font-size: 13px;
+        }
     </style>
 </head>
 
@@ -565,7 +684,7 @@
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-slate-900 focus:outline-none">
+                    <button id="mobile-menu-btn" aria-label="Άνοιγμα μενού" aria-expanded="false" aria-controls="mobile-menu" class="text-slate-600 hover:text-slate-900 focus:outline-none">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -750,18 +869,42 @@
                                 Custom QR Key Chain σε μέγεθος 2€ για καρότσι supermarket
                             </h3>
 
-                            <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-5">
+                            <p class="text-slate-200 text-sm sm:text-base leading-relaxed mb-4">
                                 Χρήσιμο καθημερινά: ο πελάτης σας το έχει πάντα στα κλειδιά του και δεν χρειάζεται να ψάχνει ψιλά για το καρότσι.
                                 Με ένα scan στο QR, ανοίγει άμεσα το custom site που φτιάχνω για εσάς.
                             </p>
 
+                            <!-- How it works — visible only on mobile -->
+                            <div class="qr-how-it-works">
+                                <div class="qr-step">
+                                    <div class="qr-step-icon bg-orange-500/20 text-orange-300">
+                                        <i class="fas fa-key"></i>
+                                    </div>
+                                    <span class="qr-step-label">Μπρελόκ<br>στα κλειδιά</span>
+                                </div>
+                                <div class="qr-step-arrow"><i class="fas fa-chevron-right"></i></div>
+                                <div class="qr-step">
+                                    <div class="qr-step-icon bg-sky-500/20 text-sky-300">
+                                        <i class="fas fa-qrcode"></i>
+                                    </div>
+                                    <span class="qr-step-label">Scan<br>QR code</span>
+                                </div>
+                                <div class="qr-step-arrow"><i class="fas fa-chevron-right"></i></div>
+                                <div class="qr-step">
+                                    <div class="qr-step-icon bg-emerald-500/20 text-emerald-300">
+                                        <i class="fas fa-mobile-screen-button"></i>
+                                    </div>
+                                    <span class="qr-step-label">Ανοίγει το<br>custom site</span>
+                                </div>
+                            </div>
+
                             <div id="custom-qr-demos" class="grid grid-cols-2 gap-2 sm:gap-4 mb-4">
                                 <div class="rounded-2xl bg-white/10 border border-white/15 p-2 sm:p-3">
-                                    <img src="qr_front.jpg" alt="QR μπρελόκ μπροστά" class="w-full h-28 sm:h-48 object-contain rounded-xl bg-slate-900/30">
+                                    <img src="qr_front.jpg" alt="QR μπρελόκ μπροστά" class="w-full h-44 sm:h-48 object-cover rounded-xl bg-slate-900/30">
                                     <p class="text-center text-[11px] sm:text-xs text-slate-300 mt-2 font-semibold">QR πλευρά</p>
                                 </div>
                                 <div class="rounded-2xl bg-white/10 border border-white/15 p-2 sm:p-3">
-                                    <img src="qr_back.jpg" alt="QR μπρελόκ πίσω" class="w-full h-28 sm:h-48 object-contain rounded-xl bg-slate-900/30">
+                                    <img src="qr_back.jpg" alt="QR μπρελόκ πίσω" class="w-full h-44 sm:h-48 object-cover rounded-xl bg-slate-900/30">
                                     <p class="text-center text-[11px] sm:text-xs text-slate-300 mt-2 font-semibold">Brand πλευρά</p>
                                 </div>
                             </div>
@@ -772,15 +915,48 @@
                         </div>
                     </div>
 
+                    <!-- Mobile demo grid — replaces the old flat list -->
                     <div class="demo-mobile-list w-full max-w-2xl">
-                        <a href="custom-site-examples/samples/demo1/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">CUSTOM SITE 01</span><span class="demo-title">Creative Handmade</span></span></a>
-                        <a href="custom-site-examples/samples/demo2/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">CUSTOM SITE 02</span><span class="demo-title">Beauty & Wellness</span></span></a>
-                        <a href="custom-site-examples/samples/demo3/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">CUSTOM SITE 03</span><span class="demo-title">Equipment Business</span></span></a>
-                        <a href="custom-site-examples/samples/demo4/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">CUSTOM SITE 04</span><span class="demo-title">Food Delivery</span></span></a>
-                        <a href="custom-site-examples/samples/demo5/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">CUSTOM SITE 05</span><span class="demo-title">Service Point</span></span></a>
-                        <a href="custom-site-examples/samples/demo6/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">CUSTOM SITE 06</span><span class="demo-title">All Day Bistro</span></span></a>
-                        <a href="custom-site-examples/samples/demo7/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">CUSTOM SITE 07</span><span class="demo-title">Pharmacy</span></span></a>
-                        <a href="custom-site-examples/samples/demo8/index.html" class="demo-arrow-link demo-side-link"><span class="demo-arrow-icon"><i class="fas fa-arrow-right"></i></span><span><span class="demo-num">CUSTOM SITE 08</span><span class="demo-title">Veterinary Center</span></span></a>
+                        <a href="custom-site-examples/samples/demo1/index.html" class="mobile-demo-card">
+                            <div class="mobile-demo-icon"><i class="fas fa-paint-brush"></i></div>
+                            <span><span class="mobile-demo-num">01</span><span class="mobile-demo-name">Creative Handmade</span></span>
+                            <i class="fas fa-chevron-right text-slate-500 text-xs ml-auto"></i>
+                        </a>
+                        <a href="custom-site-examples/samples/demo2/index.html" class="mobile-demo-card">
+                            <div class="mobile-demo-icon"><i class="fas fa-spa"></i></div>
+                            <span><span class="mobile-demo-num">02</span><span class="mobile-demo-name">Beauty &amp; Wellness</span></span>
+                            <i class="fas fa-chevron-right text-slate-500 text-xs ml-auto"></i>
+                        </a>
+                        <a href="custom-site-examples/samples/demo3/index.html" class="mobile-demo-card">
+                            <div class="mobile-demo-icon"><i class="fas fa-tools"></i></div>
+                            <span><span class="mobile-demo-num">03</span><span class="mobile-demo-name">Equipment Business</span></span>
+                            <i class="fas fa-chevron-right text-slate-500 text-xs ml-auto"></i>
+                        </a>
+                        <a href="custom-site-examples/samples/demo4/index.html" class="mobile-demo-card">
+                            <div class="mobile-demo-icon"><i class="fas fa-burger"></i></div>
+                            <span><span class="mobile-demo-num">04</span><span class="mobile-demo-name">Food Delivery</span></span>
+                            <i class="fas fa-chevron-right text-slate-500 text-xs ml-auto"></i>
+                        </a>
+                        <a href="custom-site-examples/samples/demo5/index.html" class="mobile-demo-card">
+                            <div class="mobile-demo-icon"><i class="fas fa-star"></i></div>
+                            <span><span class="mobile-demo-num">05</span><span class="mobile-demo-name">Service Point</span></span>
+                            <i class="fas fa-chevron-right text-slate-500 text-xs ml-auto"></i>
+                        </a>
+                        <a href="custom-site-examples/samples/demo6/index.html" class="mobile-demo-card">
+                            <div class="mobile-demo-icon"><i class="fas fa-coffee"></i></div>
+                            <span><span class="mobile-demo-num">06</span><span class="mobile-demo-name">All Day Bistro</span></span>
+                            <i class="fas fa-chevron-right text-slate-500 text-xs ml-auto"></i>
+                        </a>
+                        <a href="custom-site-examples/samples/demo7/index.html" class="mobile-demo-card">
+                            <div class="mobile-demo-icon"><i class="fas fa-prescription-bottle"></i></div>
+                            <span><span class="mobile-demo-num">07</span><span class="mobile-demo-name">Pharmacy</span></span>
+                            <i class="fas fa-chevron-right text-slate-500 text-xs ml-auto"></i>
+                        </a>
+                        <a href="custom-site-examples/samples/demo8/index.html" class="mobile-demo-card">
+                            <div class="mobile-demo-icon"><i class="fas fa-paw"></i></div>
+                            <span><span class="mobile-demo-num">08</span><span class="mobile-demo-name">Veterinary Center</span></span>
+                            <i class="fas fa-chevron-right text-slate-500 text-xs ml-auto"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1137,9 +1313,9 @@
                         Ηράκλειο Κρήτης.
                     </p>
                     <div class="flex gap-4">
-                        <a href="https://www.facebook.com" class="hover:text-white transition"><i
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="hover:text-white transition"><i
                                 class="fab fa-facebook text-xl"></i></a>
-                        <a href="https://www.instagram.com" class="hover:text-white transition"><i
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="hover:text-white transition"><i
                                 class="fab fa-instagram text-xl"></i></a>
                     </div>
                 </div>
@@ -1206,13 +1382,33 @@
                     <span>Online status powered by GitHub</span>
                 </div>
             </div>
+            <!-- NAEL credit -->
+            <div class="mt-4 text-center text-xs text-slate-600 opacity-60">
+                <span>created by NAEL –</span>
+                <a href="https://nasosps.github.io/page/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2 hover:opacity-100 transition">Link</a>
+            </div>
         </div>
     </footer>
+
+    <!-- Mobile Sticky Bottom Bar -->
+    <div class="mobile-sticky-bar fixed bottom-0 left-0 right-0 z-40 bg-slate-900/97 backdrop-blur-lg border-t border-slate-700/80 px-3 py-2.5 gap-2.5">
+        <a href="tel:6908636196"
+            class="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-green-600 text-white font-bold text-sm shadow-lg active:scale-95 transition-transform">
+            <i class="fas fa-phone text-xs"></i>
+            <span>Καλέστε</span>
+        </a>
+        <a href="#custom-qr-demos"
+            class="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl text-white font-bold text-sm shadow-lg active:scale-95 transition-transform"
+            style="background: linear-gradient(135deg, #ea580c 0%, #db2777 100%);">
+            <i class="fas fa-qrcode text-xs"></i>
+            <span>Δες Custom Sites</span>
+        </a>
+    </div>
 
     <!-- Hidden Hits Counter -->
     <div class="fixed bottom-2 right-2 opacity-0 hover:opacity-50 transition z-50">
         <img src="https://hitscounter.dev/api/hit?url=https%3A%2F%2Fnasosps.github.io%2Fpage%2F&label=&icon=github&color=%23198754&message=&style=flat&tz=UTC"
-            alt="page views badge">
+            alt="page views badge" width="1" height="1">
     </div>
 
     <!-- Scripts -->
@@ -1251,14 +1447,18 @@
 
         if (mobileBtn && mobileMenu) {
             mobileBtn.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
                 mobileMenu.classList.toggle('hidden');
-                // Optional: Icon toggle logic could go here
+                mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+                mobileBtn.setAttribute('aria-label', isOpen ? 'Άνοιγμα μενού' : 'Κλείσιμο μενού');
             });
 
             // Close menu when clicking a link
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
+                    mobileBtn.setAttribute('aria-expanded', 'false');
+                    mobileBtn.setAttribute('aria-label', 'Άνοιγμα μενού');
                 });
             });
         }
@@ -1438,7 +1638,7 @@
             }
 
             const activeFilterLabel = galleryFiltersData.find((filter) => filter.id === activeFilter)?.label || 'All Works';
-            gallerySummary.textContent = `Showing ${items.length} of ${galleryItems.length} works in ${activeFilterLabel}.`;
+            gallerySummary.textContent = `Εμφάνιση ${items.length} από ${galleryItems.length} έργα στην κατηγορία ${activeFilterLabel}.`;
         };
 
         const renderGallery = () => {
@@ -1451,7 +1651,7 @@
             if (visibleItems.length === 0) {
                 galleryGrid.innerHTML = `
                     <div class="mb-6 rounded-[28px] border border-slate-800 bg-slate-950/70 p-8 text-center text-slate-300" style="break-inside: avoid;">
-                        No projects match this filter yet.
+                        Δεν υπάρχουν έργα σε αυτή την κατηγορία ακόμα.
                     </div>
                 `;
                 renderGallerySummary(visibleItems);
@@ -1517,11 +1717,6 @@
         renderGallery();
 
     </script>
-        <!-- NAEL credit -->
-        <div id="nael-credit" style="margin:20px auto 12px;text-align:center;font-family:inherit;font-size:12px;line-height:1.5;font-weight:500;color:inherit;opacity:0.72;">
-          <span>created by NAEL -</span>
-          <a href="https://nasosps.github.io/page/" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:3px;">Link</a>
-        </div>
 </body>
 
 </html>
